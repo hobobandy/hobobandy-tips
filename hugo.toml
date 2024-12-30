@@ -1,0 +1,4 @@
+baseURL = 'https://hobobandy.tips/'
+languageCode = 'en-us'
+title = 'hobobandy'
+theme = 'doks'
