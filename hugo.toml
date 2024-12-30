@@ -2,3 +2,26 @@ baseURL = 'https://hobobandy.tips/'
 languageCode = 'en-us'
 title = 'hobobandy'
 theme = 'hextra'
+
+[[menu.main]]
+  name = 'Guides'
+  pageRef = '/guides'
+  weight = 1
+
+[[menu.main]]
+  name = 'Tips'
+  pageRef = '/tips'
+  weight = 2
+
+[[menu.main]]
+  name = 'Search'
+  weight = 4
+  [menu.main.params]
+  type = 'search'
+
+[[menu.main]]
+  name = 'GitHub'
+  weight = 5
+  url = 'https://github.com/hobobandy'
+  [menu.main.params]
+  icon = 'github'

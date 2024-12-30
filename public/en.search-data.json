@@ -1,1 +1,1 @@
-{}
+{"/tips/vs-xaml-unpackaged-comexception-classnotreg/":{"data":{"":"Building an unpackaged blank WinUI 3 project, the following exception is thrown:\nSystem.Runtime.InteropServices.COMException: ‘Class not registered (0x80040154 (REGDB_E_CLASSNOTREG))’\nTo fix this, add the following in the in the project’s .csproj:\n\u003cPropertyGroup\u003e ... \u003cWindowsPackageType\u003eNone\u003c/WindowsPackageType\u003e ... \u003c/PropertyGroup\u003e"},"title":"Visual Studio XAML COMException CLASSNOTREG"}}
