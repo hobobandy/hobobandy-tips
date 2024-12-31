@@ -29,18 +29,39 @@
   &lt;p class=&#34;hx-flex hx-items-center hx-font-medium&#34;&gt;&lt;svg height=16px class=&#34;hx-inline-block hx-align-middle hx-mr-2&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&#34;/&gt;&lt;/svg&gt;Note&lt;/p&gt;
 
   &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
-    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;I install extra packages that offer tools I usually end up eventually using for troubleshooting or during development.&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;&lt;code&gt;gpsd-tools&lt;/code&gt; provides &lt;code&gt;cgps&lt;/code&gt; which I use for status monitoring and troubleshooting.&lt;/p&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;ol&gt;
 &lt;li&gt;Install required packages:&lt;br&gt;
-&lt;code&gt;sudo apt install gpsd gpsd-clients gpsd-tools&lt;/code&gt;&lt;/li&gt;
+&lt;code&gt;sudo apt install gpsd gpsd-tools&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enable the gpsd service:&lt;br&gt;
+&lt;code&gt;sudo systemctl enable gpsd&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Start the gpsd service:&lt;br&gt;
+&lt;code&gt;sudo systemctl start gpsd&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Check GPS device is working using cgps - if multiple devices, specify the device path:&lt;br&gt;
+&lt;code&gt;cgps&lt;/code&gt; or &lt;code&gt;cgps /dev/ttyACM#&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;If it doesn&amp;rsquo;t work, check for device-specific instructions below.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2&gt;USB Dongles&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;usb-dongles&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#usb-dongles&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;BU-353N&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;bu-353n&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#bu-353n&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.globalsat.com.tw/en/product-282348/USB-GPS-Receiver-BU-353N.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GlobalSat BU-353N Product Page&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+
+&lt;pre&gt;&lt;code&gt;LED OFF: Receiver switch off
+LED ON: No fixed, Signal searching
+LED Flashing: Position Fixed&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;ol&gt;
 &lt;li&gt;Edit the gpsd configuration file:&lt;br&gt;
 &lt;code&gt;sudo nano /etc/default/gpsd&lt;/code&gt;&lt;/li&gt;
@@ -54,18 +75,37 @@
     &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;These mandatory switches were identified by the wardriving community for the BU-353N to work properly. They enable read-only mode, and tell gpsd not to wait for a client before polling the GPS device.&lt;/p&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;h3&gt;uBlox 7&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;ublox-7&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#ublox-7&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;lsusb&lt;/code&gt; = &lt;code&gt;1546:01a7 U-Blox AG [u-blox 7]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ls /dev&lt;/code&gt; = &lt;code&gt;/dev/ttyACM#&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;gpsd udev rules creates &lt;code&gt;/dev/gps#&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h3&gt;BU-353S4&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;bu-353s4&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#bu-353s4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.globalsat.com.tw/en/product-199952/Cable-GPS-with-USB-interface-SiRF-Star-IV-BU-353S4-EOL.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GlobalSat BU-353S4 EOL Notice&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;lsusb&lt;/code&gt; = &lt;code&gt;067b:2303 Prolific Technology, Inc. PL2303 Serial Port&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ls /dev&lt;/code&gt; = &lt;code&gt;/dev/ttyUSB#&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Plug and play!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+
+&lt;pre&gt;&lt;code&gt;LED OFF: Receiver switch off
+LED ON: No fixed, Signal searching
+LED Flashing: Position Fixed&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;Edit the gpsd configuration file:&lt;br&gt;
+&lt;code&gt;sudo nano /etc/default/gpsd&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Add the device path to the devices:&lt;br&gt;
+&lt;code&gt;DEVICES=&amp;quot;/dev/ttyUSB#&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;uBlox 7&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;ublox-7&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ublox-7&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;lsusb&lt;/code&gt; = &lt;code&gt;1546:01a7 U-Blox AG [u-blox 7]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ls /dev&lt;/code&gt; = &lt;code&gt;/dev/ttyACM#&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;gpsd udev rules creates &lt;code&gt;/dev/gps#&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>

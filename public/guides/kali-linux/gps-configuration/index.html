@@ -12,9 +12,12 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 <title>GPS Configuration – hobobandy</title>
   <meta name="description" content="Required PackagesNote
-I install extra packages that offer tools I usually end up eventually using for troubleshooting or during development.
+gpsd-tools provides cgps which I use for status monitoring and troubleshooting.
 Install required packages:
-sudo apt install gpsd gpsd-clients gpsd-tools USB DonglesBU-353NGlobalSat BU-353N Product Page Edit the gpsd configuration file:
+sudo apt install gpsd gpsd-tools Enable the gpsd service:
+sudo systemctl enable gpsd Start the gpsd service:
+sudo systemctl start gpsd Check GPS device is working using cgps - if multiple devices, specify the device path:
+cgps or cgps /dev/ttyACM# If it doesn’t work, check for device-specific instructions below. USB DonglesBU-353NGlobalSat BU-353N Product Page LED OFF: Receiver switch off LED ON: No fixed, Signal searching LED Flashing: Position FixedEdit the gpsd configuration file:
 sudo nano /etc/default/gpsd Add the following gpsd options:
 GPSD_OPTIONS=&#34;-b -n&#34; Note" /><link rel="canonical" href="http://localhost:1313/guides/kali-linux/gps-configuration/" itemprop="url" />
 
@@ -24,17 +27,35 @@ GPSD_OPTIONS=&#34;-b -n&#34; Note" /><link rel="canonical" href="http://localhos
   Note
 
   
-    I install extra packages that offer tools I usually end up eventually using for troubleshooting or during development.
+    gpsd-tools provides cgps which I use for status monitoring and troubleshooting.
   
 
 
 Install required packages:
-sudo apt install gpsd gpsd-clients gpsd-tools
+sudo apt install gpsd gpsd-tools
+Enable the gpsd service:
+sudo systemctl enable gpsd
+Start the gpsd service:
+sudo systemctl start gpsd
+Check GPS device is working using cgps - if multiple devices, specify the device path:
+cgps or cgps /dev/ttyACM#
+If it doesn&rsquo;t work, check for device-specific instructions below.
 
 USB Dongles
     BU-353N
     
 GlobalSat BU-353N Product Page
+
+
+
+LED OFF: Receiver switch off
+LED ON: No fixed, Signal searching
+LED Flashing: Position Fixed
+  
+    
+    
+  
+
 
 
 Edit the gpsd configuration file:
@@ -51,20 +72,26 @@ GPSD_OPTIONS=&quot;-b -n&quot;
 
   <meta itemprop="name" content="GPS Configuration">
   <meta itemprop="description" content="Required PackagesNote
-I install extra packages that offer tools I usually end up eventually using for troubleshooting or during development.
+gpsd-tools provides cgps which I use for status monitoring and troubleshooting.
 Install required packages:
-sudo apt install gpsd gpsd-clients gpsd-tools USB DonglesBU-353NGlobalSat BU-353N Product Page Edit the gpsd configuration file:
+sudo apt install gpsd gpsd-tools Enable the gpsd service:
+sudo systemctl enable gpsd Start the gpsd service:
+sudo systemctl start gpsd Check GPS device is working using cgps - if multiple devices, specify the device path:
+cgps or cgps /dev/ttyACM# If it doesn’t work, check for device-specific instructions below. USB DonglesBU-353NGlobalSat BU-353N Product Page LED OFF: Receiver switch off LED ON: No fixed, Signal searching LED Flashing: Position FixedEdit the gpsd configuration file:
 sudo nano /etc/default/gpsd Add the following gpsd options:
 GPSD_OPTIONS=&#34;-b -n&#34; Note">
   <meta itemprop="datePublished" content="2024-12-31T07:34:40-05:00">
   <meta itemprop="dateModified" content="2024-12-31T07:34:40-05:00">
-  <meta itemprop="wordCount" content="125">
+  <meta itemprop="wordCount" content="204">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="GPS Configuration">
   <meta name="twitter:description" content="Required PackagesNote
-I install extra packages that offer tools I usually end up eventually using for troubleshooting or during development.
+gpsd-tools provides cgps which I use for status monitoring and troubleshooting.
 Install required packages:
-sudo apt install gpsd gpsd-clients gpsd-tools USB DonglesBU-353NGlobalSat BU-353N Product Page Edit the gpsd configuration file:
+sudo apt install gpsd gpsd-tools Enable the gpsd service:
+sudo systemctl enable gpsd Start the gpsd service:
+sudo systemctl start gpsd Check GPS device is working using cgps - if multiple devices, specify the device path:
+cgps or cgps /dev/ttyACM# If it doesn’t work, check for device-specific instructions below. USB DonglesBU-353NGlobalSat BU-353N Product Page LED OFF: Receiver switch off LED ON: No fixed, Signal searching LED Flashing: Position FixedEdit the gpsd configuration file:
 sudo nano /etc/default/gpsd Add the following gpsd options:
 GPSD_OPTIONS=&#34;-b -n&#34; Note">
 
@@ -197,6 +224,14 @@ GPSD_OPTIONS=&#34;-b -n&#34; Note">
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/tips/enabling-wlan-monitor-mode/"
+    
+  >Enabling WLAN Monitor Mode
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/tips/vs-xaml-unpackaged-comexception-classnotreg/"
@@ -335,11 +370,11 @@ GPSD_OPTIONS=&#34;-b -n&#34; Note">
         </a>
       </li>
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
-        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#ublox-7">uBlox 7
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#bu-353s4">BU-353S4
         </a>
       </li>
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
-        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#bu-353s4">BU-353S4
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#ublox-7">uBlox 7
         </a>
       </li></ul>
       <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
@@ -373,18 +408,39 @@ GPSD_OPTIONS=&#34;-b -n&#34; Note">
   <p class="hx-flex hx-items-center hx-font-medium"><svg height=16px class="hx-inline-block hx-align-middle hx-mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Note</p>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>I install extra packages that offer tools I usually end up eventually using for troubleshooting or during development.</p></div>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p><code>gpsd-tools</code> provides <code>cgps</code> which I use for status monitoring and troubleshooting.</p></div>
   </div>
 </div>
 <ol>
 <li>Install required packages:<br>
-<code>sudo apt install gpsd gpsd-clients gpsd-tools</code></li>
+<code>sudo apt install gpsd gpsd-tools</code></li>
+<li>Enable the gpsd service:<br>
+<code>sudo systemctl enable gpsd</code></li>
+<li>Start the gpsd service:<br>
+<code>sudo systemctl start gpsd</code></li>
+<li>Check GPS device is working using cgps - if multiple devices, specify the device path:<br>
+<code>cgps</code> or <code>cgps /dev/ttyACM#</code></li>
+<li>If it doesn&rsquo;t work, check for device-specific instructions below.</li>
 </ol>
 <h2>USB Dongles<span class="hx-absolute -hx-mt-20" id="usb-dongles"></span>
     <a href="#usb-dongles" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>BU-353N<span class="hx-absolute -hx-mt-20" id="bu-353n"></span>
     <a href="#bu-353n" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li><a href="https://www.globalsat.com.tw/en/product-282348/USB-GPS-Receiver-BU-353N.html" target="_blank" rel="noopener">GlobalSat BU-353N Product Page</a></li>
 </ul>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<pre><code>LED OFF: Receiver switch off
+LED ON: No fixed, Signal searching
+LED Flashing: Position Fixed</code></pre><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
 <ol>
 <li>Edit the gpsd configuration file:<br>
 <code>sudo nano /etc/default/gpsd</code></li>
@@ -398,18 +454,37 @@ GPSD_OPTIONS=&#34;-b -n&#34; Note">
     <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>These mandatory switches were identified by the wardriving community for the BU-353N to work properly. They enable read-only mode, and tell gpsd not to wait for a client before polling the GPS device.</p></div>
   </div>
 </div>
-<h3>uBlox 7<span class="hx-absolute -hx-mt-20" id="ublox-7"></span>
-    <a href="#ublox-7" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li><code>lsusb</code> = <code>1546:01a7 U-Blox AG [u-blox 7]</code></li>
-<li><code>ls /dev</code> = <code>/dev/ttyACM#</code></li>
-<li>gpsd udev rules creates <code>/dev/gps#</code></li>
-</ul>
 <h3>BU-353S4<span class="hx-absolute -hx-mt-20" id="bu-353s4"></span>
     <a href="#bu-353s4" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li><a href="https://www.globalsat.com.tw/en/product-199952/Cable-GPS-with-USB-interface-SiRF-Star-IV-BU-353S4-EOL.html" target="_blank" rel="noopener">GlobalSat BU-353S4 EOL Notice</a></li>
 <li><code>lsusb</code> = <code>067b:2303 Prolific Technology, Inc. PL2303 Serial Port</code></li>
 <li><code>ls /dev</code> = <code>/dev/ttyUSB#</code></li>
-<li>Plug and play!</li>
+</ul>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<pre><code>LED OFF: Receiver switch off
+LED ON: No fixed, Signal searching
+LED Flashing: Position Fixed</code></pre><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<ol>
+<li>Edit the gpsd configuration file:<br>
+<code>sudo nano /etc/default/gpsd</code></li>
+<li>Add the device path to the devices:<br>
+<code>DEVICES=&quot;/dev/ttyUSB#&quot;</code></li>
+</ol>
+<h3>uBlox 7<span class="hx-absolute -hx-mt-20" id="ublox-7"></span>
+    <a href="#ublox-7" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><code>lsusb</code> = <code>1546:01a7 U-Blox AG [u-blox 7]</code></li>
+<li><code>ls /dev</code> = <code>/dev/ttyACM#</code></li>
+<li>gpsd udev rules creates <code>/dev/gps#</code></li>
 </ul>
 
         </div>
