@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/guides/kali-linux/</loc>
+    <lastmod>2024-12-30T18:50:23-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/guides/kali-linux/initial-setup/</loc>
+    <lastmod>2024-12-30T18:49:00-05:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tips/vs-xaml-unpackaged-comexception-classnotreg/</loc>
     <lastmod>2024-12-30T14:35:27-05:00</lastmod>
   </url><url>
