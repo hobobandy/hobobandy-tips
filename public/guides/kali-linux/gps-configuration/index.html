@@ -10,60 +10,63 @@
 <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
-<title>Initial Setup – hobobandy</title>
-  <meta name="description" content="Common StepsDownload the Kali Linux installer from the official Kali website. Use Balena Etcher to create a bootable USB install drive. Plug the USB drive into the system and boot from it. This step may need BIOS changes. (e.g. secure boot disabling, legacy mode activation) Complete the installation as desired. Login using the user account. Open a Terminal Emulator. Note the IP address:
-ifconfig Enable the SSH server service:
-sudo systemctl enable ssh Perform a full system update - this will take a while:
-sudo apt update &amp;&amp; sudo apt full-upgrade Reboot the system:
-sudo reboot SSHPassword AuthenticationCaution" /><link rel="canonical" href="http://localhost:1313/guides/kali-linux/initial-setup/" itemprop="url" />
+<title>GPS Configuration – hobobandy</title>
+  <meta name="description" content="Required PackagesNote
+I install extra packages that offer tools I usually end up eventually using for troubleshooting or during development.
+Install required packages:
+sudo apt install gpsd gpsd-clients gpsd-tools USB DonglesBU-353NGlobalSat BU-353N Product Page Edit the gpsd configuration file:
+sudo nano /etc/default/gpsd Add the following gpsd options:
+GPSD_OPTIONS=&#34;-b -n&#34; Note" /><link rel="canonical" href="http://localhost:1313/guides/kali-linux/gps-configuration/" itemprop="url" />
 
-<meta property="og:title" content="Initial Setup" />
-<meta property="og:description" content="Common Steps
+<meta property="og:title" content="GPS Configuration" />
+<meta property="og:description" content="Required Packages
     
-Download the Kali Linux installer from the official Kali website.
-Use Balena Etcher to create a bootable USB install drive.
-Plug the USB drive into the system and boot from it.
+  Note
 
-This step may need BIOS changes. (e.g. secure boot disabling, legacy mode activation)
+  
+    I install extra packages that offer tools I usually end up eventually using for troubleshooting or during development.
+  
 
 
-Complete the installation as desired.
-Login using the user account.
-Open a Terminal Emulator.
-Note the IP address:
-ifconfig
-Enable the SSH server service:
-sudo systemctl enable ssh
-Perform a full system update - this will take a while:
-sudo apt update &amp;&amp; sudo apt full-upgrade
-Reboot the system:
-sudo reboot
+Install required packages:
+sudo apt install gpsd gpsd-clients gpsd-tools
 
-SSH
-    Password Authentication
+USB Dongles
+    BU-353N
     
-  Caution" />
+GlobalSat BU-353N Product Page
+
+
+Edit the gpsd configuration file:
+sudo nano /etc/default/gpsd
+Add the following gpsd options:
+GPSD_OPTIONS=&quot;-b -n&quot;
+
+
+  Note" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/guides/kali-linux/initial-setup/" /><meta property="article:section" content="guides" />
-<meta property="article:published_time" content="2024-12-30T18:49:00-05:00" />
-<meta property="article:modified_time" content="2024-12-30T18:49:00-05:00" />
+<meta property="og:url" content="http://localhost:1313/guides/kali-linux/gps-configuration/" /><meta property="article:section" content="guides" />
+<meta property="article:published_time" content="2024-12-31T07:34:40-05:00" />
+<meta property="article:modified_time" content="2024-12-31T07:34:40-05:00" />
 
-  <meta itemprop="name" content="Initial Setup">
-  <meta itemprop="description" content="Common StepsDownload the Kali Linux installer from the official Kali website. Use Balena Etcher to create a bootable USB install drive. Plug the USB drive into the system and boot from it. This step may need BIOS changes. (e.g. secure boot disabling, legacy mode activation) Complete the installation as desired. Login using the user account. Open a Terminal Emulator. Note the IP address:
-ifconfig Enable the SSH server service:
-sudo systemctl enable ssh Perform a full system update - this will take a while:
-sudo apt update &amp;&amp; sudo apt full-upgrade Reboot the system:
-sudo reboot SSHPassword AuthenticationCaution">
-  <meta itemprop="datePublished" content="2024-12-30T18:49:00-05:00">
-  <meta itemprop="dateModified" content="2024-12-30T18:49:00-05:00">
-  <meta itemprop="wordCount" content="236">
+  <meta itemprop="name" content="GPS Configuration">
+  <meta itemprop="description" content="Required PackagesNote
+I install extra packages that offer tools I usually end up eventually using for troubleshooting or during development.
+Install required packages:
+sudo apt install gpsd gpsd-clients gpsd-tools USB DonglesBU-353NGlobalSat BU-353N Product Page Edit the gpsd configuration file:
+sudo nano /etc/default/gpsd Add the following gpsd options:
+GPSD_OPTIONS=&#34;-b -n&#34; Note">
+  <meta itemprop="datePublished" content="2024-12-31T07:34:40-05:00">
+  <meta itemprop="dateModified" content="2024-12-31T07:34:40-05:00">
+  <meta itemprop="wordCount" content="125">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Initial Setup">
-  <meta name="twitter:description" content="Common StepsDownload the Kali Linux installer from the official Kali website. Use Balena Etcher to create a bootable USB install drive. Plug the USB drive into the system and boot from it. This step may need BIOS changes. (e.g. secure boot disabling, legacy mode activation) Complete the installation as desired. Login using the user account. Open a Terminal Emulator. Note the IP address:
-ifconfig Enable the SSH server service:
-sudo systemctl enable ssh Perform a full system update - this will take a while:
-sudo apt update &amp;&amp; sudo apt full-upgrade Reboot the system:
-sudo reboot SSHPassword AuthenticationCaution">
+  <meta name="twitter:title" content="GPS Configuration">
+  <meta name="twitter:description" content="Required PackagesNote
+I install extra packages that offer tools I usually end up eventually using for troubleshooting or during development.
+Install required packages:
+sudo apt install gpsd gpsd-clients gpsd-tools USB DonglesBU-353NGlobalSat BU-353N Product Page Edit the gpsd configuration file:
+sudo nano /etc/default/gpsd Add the following gpsd options:
+GPSD_OPTIONS=&#34;-b -n&#34; Note">
 
     <link href="/css/compiled/main.css" rel="stylesheet" />
 
@@ -220,13 +223,28 @@ sudo reboot SSHPassword AuthenticationCaution">
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a>
               <div class="ltr:hx-pr-0 hx-overflow-hidden">
-        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
     href="/guides/kali-linux/gps-configuration/"
     
   >GPS Configuration
     </a>
+  
+    <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li>
+              <a
+                href="#required-packages"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Required Packages</a>
+            </li>
+          <li>
+              <a
+                href="#usb-dongles"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >USB Dongles</a>
+            </li>
+          </ul>
+  
               
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -236,34 +254,13 @@ sudo reboot SSHPassword AuthenticationCaution">
   >Alfa AWUS036ACH
     </a>
               
-            </li><li class="hx-flex hx-flex-col open"><a
+            </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/guides/kali-linux/initial-setup/"
     
   >Initial Setup
     </a>
-  
-    <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li>
-              <a
-                href="#common-steps"
-                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
-              >Common Steps</a>
-            </li>
-          <li>
-              <a
-                href="#ssh"
-                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
-              >SSH</a>
-            </li>
-          <li>
-              <a
-                href="#headless-installation-rpi"
-                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
-              >Headless Installation (RPi)</a>
-            </li>
-          </ul>
-  
               
             </li></ul>
       </div>
@@ -281,9 +278,9 @@ sudo reboot SSHPassword AuthenticationCaution">
   >Kali Linux
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
-        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
     href="/guides/kali-linux/gps-configuration/"
     
   >GPS Configuration
@@ -297,9 +294,9 @@ sudo reboot SSHPassword AuthenticationCaution">
   >Alfa AWUS036ACH
     </a>
               
-            </li><li class="hx-flex hx-flex-col open"><a
+            </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/guides/kali-linux/initial-setup/"
     
   >Initial Setup
@@ -326,23 +323,23 @@ sudo reboot SSHPassword AuthenticationCaution">
 <nav class="hextra-toc hx-order-last hx-hidden hx-w-64 hx-shrink-0 xl:hx-block print:hx-hidden hx-px-4" aria-label="table of contents">
     <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4"><p class="hx-mb-4 hx-font-semibold hx-tracking-tight">On this page</p><ul>
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
-        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#common-steps">Common Steps
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#required-packages">Required Packages
         </a>
       </li>
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
-        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#ssh">SSH
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#usb-dongles">USB Dongles
         </a>
       </li>
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
-        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#password-authentication">Password Authentication
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#bu-353n">BU-353N
         </a>
       </li>
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
-        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#key-based-authentication">Key-based Authentication
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#ublox-7">uBlox 7
         </a>
       </li>
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
-        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#headless-installation-rpi">Headless Installation (RPi)
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#bu-353s4">BU-353S4
         </a>
       </li></ul>
       <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
@@ -366,75 +363,62 @@ sudo reboot SSHPassword AuthenticationCaution">
         </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
           <a href="/guides/kali-linux/">Kali Linux</a>
-        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Initial Setup</div>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">GPS Configuration</div>
   </div>
 
         <div class="content">
-          <h1>Initial Setup</h1>
-          <h2>Common Steps<span class="hx-absolute -hx-mt-20" id="common-steps"></span>
-    <a href="#common-steps" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
-<li>Download the Kali Linux installer from <a href="https://www.kali.org/get-kali/" target="_blank" rel="noopener">the official Kali website</a>.</li>
-<li>Use <a href="https://etcher.balena.io/" target="_blank" rel="noopener">Balena Etcher</a> to create a bootable USB install drive.</li>
-<li>Plug the USB drive into the system and boot from it.
-<ul>
-<li>This step may need BIOS changes. (e.g. secure boot disabling, legacy mode activation)</li>
-</ul>
-</li>
-<li>Complete the installation as desired.</li>
-<li>Login using the user account.</li>
-<li>Open a <code>Terminal Emulator</code>.</li>
-<li>Note the IP address:<br>
-<code>ifconfig</code></li>
-<li>Enable the SSH server service:<br>
-<code>sudo systemctl enable ssh</code></li>
-<li>Perform a full system update - this will take a while:<br>
-<code>sudo apt update &amp;&amp; sudo apt full-upgrade</code></li>
-<li>Reboot the system:<br>
-<code>sudo reboot</code></li>
-</ol>
-<h2>SSH<span class="hx-absolute -hx-mt-20" id="ssh"></span>
-    <a href="#ssh" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Password Authentication<span class="hx-absolute -hx-mt-20" id="password-authentication"></span>
-    <a href="#password-authentication" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-flex-col hx-rounded-lg hx-border hx-py-4 hx-px-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-red-200 hx-bg-red-100 hx-text-red-900 dark:hx-border-red-200/30 dark:hx-bg-red-900/30 dark:hx-text-red-200">
-  <p class="hx-flex hx-items-center hx-font-medium"><svg height=16px class="hx-inline-block hx-align-middle hx-mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Caution</p>
+          <h1>GPS Configuration</h1>
+          <h2>Required Packages<span class="hx-absolute -hx-mt-20" id="required-packages"></span>
+    <a href="#required-packages" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-flex-col hx-rounded-lg hx-border hx-py-4 hx-px-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200">
+  <p class="hx-flex hx-items-center hx-font-medium"><svg height=16px class="hx-inline-block hx-align-middle hx-mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Note</p>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>This is not a recommended method of authentication, especially if your system is connected to the Internet. You should use SSH keys.</p></div>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>I install extra packages that offer tools I usually end up eventually using for troubleshooting or during development.</p></div>
   </div>
 </div>
 <ol>
-<li>Edit the configuration file as a superuser:<br>
-<code>sudo nano /etc/ssh/sshd_config</code></li>
-<li>Uncomment the line:<br>
-<code>PasswordAuthentication yes</code></li>
-<li>Restart the SSH server:<br>
-<code>sudo systemctl restart ssh</code></li>
-<li>You may now logout, and remote into the system.
-<ul>
-<li>For Windows, I recommend <a href="https://mobaxterm.mobatek.net/" target="_blank" rel="noopener">MobaXterm</a> or <a href="https://www.putty.org/" target="_blank" rel="noopener">PuTTY</a>.</li>
-</ul>
-</li>
+<li>Install required packages:<br>
+<code>sudo apt install gpsd gpsd-clients gpsd-tools</code></li>
 </ol>
-<h3>Key-based Authentication<span class="hx-absolute -hx-mt-20" id="key-based-authentication"></span>
-    <a href="#key-based-authentication" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p><em>To be confirmed.</em></p>
-<h2>Headless Installation (RPi)<span class="hx-absolute -hx-mt-20" id="headless-installation-rpi"></span>
-    <a href="#headless-installation-rpi" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>For a headless installation, and to have the system connect to a WiFi network automatically, add a <code>wpa_supplicant.conf</code> file to the first partition of the USB drive.</p>
-<p>Generate the file using the following command on a different Linux system:<br>
-<code>wpa_passphrase YOURNETWORK &gt; wpa_supplicant.conf</code></p>
-<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-flex-col hx-rounded-lg hx-border hx-py-4 hx-px-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-red-200 hx-bg-red-100 hx-text-red-900 dark:hx-border-red-200/30 dark:hx-bg-red-900/30 dark:hx-text-red-200">
-  <p class="hx-flex hx-items-center hx-font-medium"><svg height=16px class="hx-inline-block hx-align-middle hx-mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Caution</p>
+<h2>USB Dongles<span class="hx-absolute -hx-mt-20" id="usb-dongles"></span>
+    <a href="#usb-dongles" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>BU-353N<span class="hx-absolute -hx-mt-20" id="bu-353n"></span>
+    <a href="#bu-353n" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><a href="https://www.globalsat.com.tw/en/product-282348/USB-GPS-Receiver-BU-353N.html" target="_blank" rel="noopener">GlobalSat BU-353N Product Page</a></li>
+</ul>
+<ol>
+<li>Edit the gpsd configuration file:<br>
+<code>sudo nano /etc/default/gpsd</code></li>
+<li>Add the following gpsd options:<br>
+<code>GPSD_OPTIONS=&quot;-b -n&quot;</code></li>
+</ol>
+<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-flex-col hx-rounded-lg hx-border hx-py-4 hx-px-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200">
+  <p class="hx-flex hx-items-center hx-font-medium"><svg height=16px class="hx-inline-block hx-align-middle hx-mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Note</p>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Your user&rsquo;s shell history will now contain your WiFi network password, edit your shell&rsquo;s history file to remove it. (e.g. <code>~/.zsh_history</code>, <code>~/.bash_history</code>)</p></div>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>These mandatory switches were identified by the wardriving community for the BU-353N to work properly. They enable read-only mode, and tell gpsd not to wait for a client before polling the GPS device.</p></div>
   </div>
 </div>
+<h3>uBlox 7<span class="hx-absolute -hx-mt-20" id="ublox-7"></span>
+    <a href="#ublox-7" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><code>lsusb</code> = <code>1546:01a7 U-Blox AG [u-blox 7]</code></li>
+<li><code>ls /dev</code> = <code>/dev/ttyACM#</code></li>
+<li>gpsd udev rules creates <code>/dev/gps#</code></li>
+</ul>
+<h3>BU-353S4<span class="hx-absolute -hx-mt-20" id="bu-353s4"></span>
+    <a href="#bu-353s4" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><a href="https://www.globalsat.com.tw/en/product-199952/Cable-GPS-with-USB-interface-SiRF-Star-IV-BU-353S4-EOL.html" target="_blank" rel="noopener">GlobalSat BU-353S4 EOL Notice</a></li>
+<li><code>lsusb</code> = <code>067b:2303 Prolific Technology, Inc. PL2303 Serial Port</code></li>
+<li><code>ls /dev</code> = <code>/dev/ttyUSB#</code></li>
+<li>Plug and play!</li>
+</ul>
 
         </div>
         <div class="hx-mt-16"></div>
         <div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a
         href="/guides/kali-linux/alfa-awus036ach/"
         title="Alfa AWUS036ACH"
-        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
-      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Alfa AWUS036ACH</a></div>
+        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-ml-auto ltr:hx-pl-4 ltr:hx-text-right rtl:hx-mr-auto rtl:hx-pr-4 rtl:hx-text-left"
+      >Alfa AWUS036ACH<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
