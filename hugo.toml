@@ -4,14 +4,19 @@ title = 'hobobandy'
 theme = 'hextra'
 
 [[menu.main]]
+  name = 'Awesome Lists'
+  pageRef = '/awesome-lists'
+  weight = 1
+
+[[menu.main]]
   name = 'Guides'
   pageRef = '/guides'
-  weight = 1
+  weight = 2
 
 [[menu.main]]
   name = 'Tips'
   pageRef = '/tips'
-  weight = 2
+  weight = 3
 
 [[menu.main]]
   name = 'Search'

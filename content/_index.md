@@ -10,6 +10,10 @@ I'm passionate about cyber security and software development.
 
 Most of my personal projects can be found on [my Github profile](https://github.com/hobobandy).
 
+## Awesome Lists
+
+This section is meant to collect resources for various topics.
+
 ## Guides
 
 This section is meant to document setup instructions I've noted down over the years.
