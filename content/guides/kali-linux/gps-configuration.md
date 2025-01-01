@@ -24,6 +24,8 @@ title = 'GPS Configuration'
 ### BU-353N
 
 * [GlobalSat BU-353N Product Page](https://www.globalsat.com.tw/en/product-282348/USB-GPS-Receiver-BU-353N.html)
+* `lsusb` = `067b:23a3 Prolific Technology, Inc. ATEN Serial Bridge`
+* `ls /dev` = `/dev/ttyUSB#`
 
 ```
 LED OFF: Receiver switch off
@@ -33,7 +35,9 @@ LED Flashing: Position Fixed
 
 1. Edit the gpsd configuration file:  
    `sudo nano /etc/default/gpsd`
-2. Add the following gpsd options:  
+2. Add the device path to the devices:  
+   `DEVICES="/dev/ttyUSB#"`
+3. Add the following gpsd options:  
    `GPSD_OPTIONS="-b -n"`
 
 > [!NOTE]
@@ -61,3 +65,8 @@ LED Flashing: Position Fixed
 * `lsusb` = `1546:01a7 U-Blox AG [u-blox 7]`
 * `ls /dev` = `/dev/ttyACM#`
 * gpsd udev rules creates `/dev/gps#`
+
+1. Edit the gpsd configuration file:  
+   `sudo nano /etc/default/gpsd`
+2. Add the device path to the devices:  
+   `DEVICES="/dev/ttyACM#"`
