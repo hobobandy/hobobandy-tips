@@ -4,9 +4,10 @@ draft = false
 title = 'C#'
 +++
 
-## WinUI 3 Core
+## WinUI 3
 
 * [WinUI 3 Gallery](https://github.com/microsoft/WinUI-Gallery)
+* [WinUI Extensions](https://github.com/dotMorten/WinUIEx)
 
 ## Community Toolkits
 
