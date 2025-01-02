@@ -14,3 +14,4 @@ title = 'C#'
 * [Community Toolkits for .NET Documentation](https://learn.microsoft.com/en-ca/dotnet/communitytoolkit/)
 * [Windows Community Toolkit](https://github.com/CommunityToolkit/Windows)
 * [Windows Community Toolkit Labs](https://github.com/CommunityToolkit/Labs-Windows)
+* [MVVM Samples](https://github.com/CommunityToolkit/MVVM-Samples)
