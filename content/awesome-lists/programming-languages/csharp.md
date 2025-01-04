@@ -16,3 +16,7 @@ title = 'C#'
 * [Windows Community Toolkit Labs](https://github.com/CommunityToolkit/Labs-Windows)
 * [MVVM Samples](https://github.com/CommunityToolkit/MVVM-Samples)
 * [MVVM WinUI Example + YouTube](https://github.com/michael-hawker/MVVMNetConfApp)
+
+## Packages
+
+* [Humanizer](https://github.com/Humanizr/Humanizer)
