@@ -2,20 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hobobandy.tips/guides/csharp/using-a-sqlite-database/</loc>
+    <loc>https://hobobandy.tips/development/html-css/</loc>
+    <lastmod>2025-01-04T11:27:57-05:00</lastmod>
+  </url><url>
+    <loc>https://hobobandy.tips/development/javascript/</loc>
+    <lastmod>2025-01-04T11:27:36-05:00</lastmod>
+  </url><url>
+    <loc>https://hobobandy.tips/development/python/</loc>
+    <lastmod>2025-01-04T11:27:28-05:00</lastmod>
+  </url><url>
+    <loc>https://hobobandy.tips/development/csharp/</loc>
+    <lastmod>2025-01-04T11:27:22-05:00</lastmod>
+  </url><url>
+    <loc>https://hobobandy.tips/development/</loc>
+    <lastmod>2025-01-04T11:27:12-05:00</lastmod>
+  </url><url>
+    <loc>https://hobobandy.tips/development/csharp/using-a-sqlite-database/</loc>
     <lastmod>2025-01-03T22:30:09-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/guides/csharp/</loc>
-    <lastmod>2025-01-03T22:27:31-05:00</lastmod>
-  </url><url>
-    <loc>https://hobobandy.tips/awesome-lists/programming-languages/</loc>
-    <lastmod>2024-12-31T21:10:33-05:00</lastmod>
-  </url><url>
-    <loc>https://hobobandy.tips/awesome-lists/programming-languages/csharp/</loc>
+    <loc>https://hobobandy.tips/development/csharp/awesome-list/</loc>
     <lastmod>2024-12-31T21:05:44-05:00</lastmod>
-  </url><url>
-    <loc>https://hobobandy.tips/awesome-lists/</loc>
-    <lastmod>2024-12-31T21:05:34-05:00</lastmod>
   </url><url>
     <loc>https://hobobandy.tips/tips/enabling-wlan-monitor-mode/</loc>
     <lastmod>2024-12-31T08:05:09-05:00</lastmod>

@@ -1,0 +1,76 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hobobandy – C#/.NET</title>
+    <link>https://hobobandy.tips/development/csharp/</link>
+    <description>Recent content in C#/.NET on hobobandy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 Jan 2025 11:27:22 -0500</lastBuildDate>
+    
+	  <atom:link href="https://hobobandy.tips/development/csharp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Using a Sqlite Database</title>
+      <link>https://hobobandy.tips/development/csharp/using-a-sqlite-database/</link>
+      <pubDate>Fri, 03 Jan 2025 22:30:09 -0500</pubDate>
+      
+      <guid>https://hobobandy.tips/development/csharp/using-a-sqlite-database/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Extensions&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;extensions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#extensions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Install the following for GUI based assistance with reverse engineering of an existing database and visualizing DbContext models.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ErikEJ/EFCorePowerTools/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EF Core Power Tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ErikEJ.EFCorePowerPack&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EF Core Power Pack&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Remember to add database file extensions (e.g. &lt;code&gt;.db&lt;/code&gt;, &lt;code&gt;.sqlite&lt;/code&gt;, &lt;code&gt;.kismet&lt;/code&gt;) and &lt;code&gt;efpt.config.json&lt;/code&gt; to the &lt;code&gt;.gitignore&lt;/code&gt; file.&lt;/p&gt;
+&lt;h2&gt;Docs&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;docs&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#docs&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/windows/apps/develop/data-access/sqlite-data-access&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Use a SQLite database in a Windows app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ErikEJ/EFCorePowerTools/wiki/Reverse-Engineering&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Reverse Engineering Using EF Core Power Tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/connection-strings&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Microsoft.Data.Sqlite Connection strings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-ca/ef/core/modeling/keyless-entity-types?tabs=data-annotations&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Keyless Entity Types&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Awesome List</title>
+      <link>https://hobobandy.tips/development/csharp/awesome-list/</link>
+      <pubDate>Tue, 31 Dec 2024 21:05:44 -0500</pubDate>
+      
+      <guid>https://hobobandy.tips/development/csharp/awesome-list/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;WinUI 3&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;winui-3&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#winui-3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/microsoft/WinUI-Gallery&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WinUI 3 Gallery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/dotMorten/WinUIEx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WinUI Extensions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Community Toolkits&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;community-toolkits&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#community-toolkits&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-ca/dotnet/communitytoolkit/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Community Toolkits for .NET Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/CommunityToolkit/Windows&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Community Toolkit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/CommunityToolkit/Labs-Windows&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Community Toolkit Labs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/CommunityToolkit/MVVM-Samples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MVVM Samples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/michael-hawker/MVVMNetConfApp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MVVM WinUI Example + YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Packages&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;packages&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#packages&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Humanizr/Humanizer&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Humanizer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

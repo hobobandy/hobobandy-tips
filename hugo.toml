@@ -4,8 +4,8 @@ title = 'hobobandy'
 theme = 'hextra'
 
 [[menu.main]]
-  name = 'Awesome Lists'
-  pageRef = '/awesome-lists'
+  name = 'Development'
+  pageRef = '/development'
   weight = 1
 
 [[menu.main]]
