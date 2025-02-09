@@ -15,6 +15,66 @@
     
     
     <item>
+      <title>Compiling Kismet on Kali 2024.4</title>
+      <link>https://hobobandy.tips/tips/compiling-kismet-on-kali/</link>
+      <pubDate>Sat, 08 Feb 2025 17:25:31 -0500</pubDate>
+      
+      <guid>https://hobobandy.tips/tips/compiling-kismet-on-kali/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Default Configuration&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;default-configuration&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#default-configuration&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;To use the default &lt;code&gt;./configure&lt;/code&gt; command, these are the required packages:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install libpcre2-dev libsqlite3-dev libssl-dev pkgconf libwebsockets-dev libpcap-dev libnm-dev libnl-3-dev libnl-genl-3-dev libusb-1.0-0-dev libbtbb-dev librtlsdr-dev libmosquitto-dev libsensors-dev &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Datasource-specific&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;datasource-specific&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#datasource-specific&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;rtl-433&lt;/code&gt; package is already installed on a default Kali installation.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;libubertooth-dev&lt;/code&gt; package is required for Ubertooth support.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Additional Options&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;additional-options&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#additional-options&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;For full debug logs, add the &lt;code&gt;libdw-dev&lt;/code&gt; package.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Switch&lt;/th&gt;
+          &lt;th&gt;Required Package&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&amp;ndash;enable-bladerf&lt;/td&gt;
+          &lt;td&gt;libbladerf-dev&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&amp;ndash;enable-wifi-coconut&lt;/td&gt;
+          &lt;td&gt;none&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&amp;ndash;enable-btgeiger &amp;ndash;enable-python-tools&lt;/td&gt;
+          &lt;td&gt;none&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Enabling WLAN Monitor Mode</title>
       <link>https://hobobandy.tips/tips/enabling-wlan-monitor-mode/</link>
       <pubDate>Tue, 31 Dec 2024 08:05:09 -0500</pubDate>
