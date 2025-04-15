@@ -24,14 +24,14 @@
       <description>
         
         
-        &lt;h2&gt;Extensions&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;extensions&#34;&gt;&lt;/span&gt;
+        &lt;h2&gt;Extensions&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;extensions&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#extensions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Install the following for GUI based assistance with reverse engineering of an existing database and visualizing DbContext models.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/ErikEJ/EFCorePowerTools/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EF Core Power Tools&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ErikEJ.EFCorePowerPack&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EF Core Power Pack&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Remember to add database file extensions (e.g. &lt;code&gt;.db&lt;/code&gt;, &lt;code&gt;.sqlite&lt;/code&gt;, &lt;code&gt;.kismet&lt;/code&gt;) and &lt;code&gt;efpt.config.json&lt;/code&gt; to the &lt;code&gt;.gitignore&lt;/code&gt; file.&lt;/p&gt;
-&lt;h2&gt;Docs&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;docs&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Docs&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;docs&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#docs&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/windows/apps/develop/data-access/sqlite-data-access&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Use a SQLite database in a Windows app&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/ErikEJ/EFCorePowerTools/wiki/Reverse-Engineering&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Reverse Engineering Using EF Core Power Tools&lt;/a&gt;&lt;/li&gt;
@@ -51,12 +51,12 @@
       <description>
         
         
-        &lt;h2&gt;WinUI 3&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;winui-3&#34;&gt;&lt;/span&gt;
+        &lt;h2&gt;WinUI 3&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;winui-3&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#winui-3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/microsoft/WinUI-Gallery&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WinUI 3 Gallery&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/dotMorten/WinUIEx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WinUI Extensions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Community Toolkits&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;community-toolkits&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Community Toolkits&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;community-toolkits&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#community-toolkits&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-ca/dotnet/communitytoolkit/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Community Toolkits for .NET Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/CommunityToolkit/Windows&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Windows Community Toolkit&lt;/a&gt;&lt;/li&gt;
@@ -64,7 +64,7 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/CommunityToolkit/MVVM-Samples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MVVM Samples&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/michael-hawker/MVVMNetConfApp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MVVM WinUI Example + YouTube&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Packages&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;packages&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Packages&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;packages&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#packages&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/Humanizr/Humanizer&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Humanizer&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/spectreconsole/spectre.console&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Spectre Console&lt;/a&gt;&lt;/li&gt;
