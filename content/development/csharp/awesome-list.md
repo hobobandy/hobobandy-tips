@@ -20,3 +20,10 @@ title = 'Awesome List'
 ## Packages
 
 * [Humanizer](https://github.com/Humanizr/Humanizer)
+* [Spectre Console](https://github.com/spectreconsole/spectre.console)
+* [ScottPlot](https://scottplot.net/)
+* [Sep](https://github.com/nietras/Sep/)
+* [CsvHelper](https://github.com/JoshClose/CsvHelper)
+* [Serilog](https://github.com/serilog/serilog)
+* [Mapsui](https://github.com/Mapsui/Mapsui)
+* [Caliburn.Micro](https://github.com/Caliburn-Micro/Caliburn.Micro)
