@@ -1,13 +1,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hobobandy – C#/.NET</title>
-    <link>http://localhost:1313/development/csharp/</link>
+    <link>https://hobobandy.tips/development/csharp/</link>
     <description>Recent content in C#/.NET on hobobandy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Jan 2025 11:27:22 -0500</lastBuildDate>
     
-	  <atom:link href="http://localhost:1313/development/csharp/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://hobobandy.tips/development/csharp/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -17,10 +17,10 @@
     
     <item>
       <title>Using a Sqlite Database</title>
-      <link>http://localhost:1313/development/csharp/using-a-sqlite-database/</link>
+      <link>https://hobobandy.tips/development/csharp/using-a-sqlite-database/</link>
       <pubDate>Fri, 03 Jan 2025 22:30:09 -0500</pubDate>
       
-      <guid>http://localhost:1313/development/csharp/using-a-sqlite-database/</guid>
+      <guid>https://hobobandy.tips/development/csharp/using-a-sqlite-database/</guid>
       <description>
         
         
@@ -44,10 +44,10 @@
     
     <item>
       <title>Awesome List</title>
-      <link>http://localhost:1313/development/csharp/awesome-list/</link>
+      <link>https://hobobandy.tips/development/csharp/awesome-list/</link>
       <pubDate>Tue, 31 Dec 2024 21:05:44 -0500</pubDate>
       
-      <guid>http://localhost:1313/development/csharp/awesome-list/</guid>
+      <guid>https://hobobandy.tips/development/csharp/awesome-list/</guid>
       <description>
         
         
