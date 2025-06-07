@@ -1,13 +1,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hobobandy – Kali Linux</title>
-    <link>http://localhost:1313/guides/kali-linux/</link>
+    <link>https://hobobandy.tips/guides/kali-linux/</link>
     <description>Recent content in Kali Linux on hobobandy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 30 Dec 2024 18:50:23 -0500</lastBuildDate>
     
-	  <atom:link href="http://localhost:1313/guides/kali-linux/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://hobobandy.tips/guides/kali-linux/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -17,10 +17,10 @@
     
     <item>
       <title>GPS Configuration</title>
-      <link>http://localhost:1313/guides/kali-linux/gps-configuration/</link>
+      <link>https://hobobandy.tips/guides/kali-linux/gps-configuration/</link>
       <pubDate>Tue, 31 Dec 2024 07:34:40 -0500</pubDate>
       
-      <guid>http://localhost:1313/guides/kali-linux/gps-configuration/</guid>
+      <guid>https://hobobandy.tips/guides/kali-linux/gps-configuration/</guid>
       <description>
         
         
@@ -123,10 +123,10 @@ LED Flashing: Position Fixed&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&
     
     <item>
       <title>Alfa AWUS036ACH</title>
-      <link>http://localhost:1313/guides/kali-linux/alfa-awus036ach/</link>
+      <link>https://hobobandy.tips/guides/kali-linux/alfa-awus036ach/</link>
       <pubDate>Tue, 31 Dec 2024 06:38:15 -0500</pubDate>
       
-      <guid>http://localhost:1313/guides/kali-linux/alfa-awus036ach/</guid>
+      <guid>https://hobobandy.tips/guides/kali-linux/alfa-awus036ach/</guid>
       <description>
         
         
@@ -162,10 +162,10 @@ LED Flashing: Position Fixed&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&
     
     <item>
       <title>Initial Setup</title>
-      <link>http://localhost:1313/guides/kali-linux/initial-setup/</link>
+      <link>https://hobobandy.tips/guides/kali-linux/initial-setup/</link>
       <pubDate>Mon, 30 Dec 2024 18:49:00 -0500</pubDate>
       
-      <guid>http://localhost:1313/guides/kali-linux/initial-setup/</guid>
+      <guid>https://hobobandy.tips/guides/kali-linux/initial-setup/</guid>
       <description>
         
         

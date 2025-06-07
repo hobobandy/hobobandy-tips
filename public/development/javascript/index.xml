@@ -1,13 +1,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hobobandy – JavaScript</title>
-    <link>http://localhost:1313/development/javascript/</link>
+    <link>https://hobobandy.tips/development/javascript/</link>
     <description>Recent content in JavaScript on hobobandy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Jan 2025 11:27:36 -0500</lastBuildDate>
     
-	  <atom:link href="http://localhost:1313/development/javascript/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://hobobandy.tips/development/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
       
