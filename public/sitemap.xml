@@ -2,71 +2,71 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hobobandy.tips/tips/prevent-networkmanager-conflicts/</loc>
+    <loc>http://localhost:1313/tips/prevent-networkmanager-conflicts/</loc>
     <lastmod>2025-04-29T10:46:10-04:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/development/react/development-stack/</loc>
+    <loc>http://localhost:1313/development/react/development-stack/</loc>
     <lastmod>2025-04-15T04:53:49-04:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/development/react/</loc>
+    <loc>http://localhost:1313/development/react/</loc>
     <lastmod>2025-04-15T04:52:43-04:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/development/react/awesome-list/</loc>
+    <loc>http://localhost:1313/development/react/awesome-list/</loc>
     <lastmod>2025-04-15T04:50:12-04:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/tips/compiling-kismet-on-kali/</loc>
+    <loc>http://localhost:1313/tips/compiling-kismet-on-kali/</loc>
     <lastmod>2025-02-08T17:25:31-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/development/html-css/</loc>
+    <loc>http://localhost:1313/development/html-css/</loc>
     <lastmod>2025-01-04T11:27:57-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/development/javascript/</loc>
+    <loc>http://localhost:1313/development/javascript/</loc>
     <lastmod>2025-01-04T11:27:36-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/development/python/</loc>
+    <loc>http://localhost:1313/development/python/</loc>
     <lastmod>2025-01-04T11:27:28-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/development/csharp/</loc>
+    <loc>http://localhost:1313/development/csharp/</loc>
     <lastmod>2025-01-04T11:27:22-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/development/</loc>
+    <loc>http://localhost:1313/development/</loc>
     <lastmod>2025-01-04T11:27:12-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/development/csharp/using-a-sqlite-database/</loc>
+    <loc>http://localhost:1313/development/csharp/using-a-sqlite-database/</loc>
     <lastmod>2025-01-03T22:30:09-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/development/csharp/awesome-list/</loc>
+    <loc>http://localhost:1313/development/csharp/awesome-list/</loc>
     <lastmod>2024-12-31T21:05:44-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/tips/enabling-wlan-monitor-mode/</loc>
+    <loc>http://localhost:1313/tips/enabling-wlan-monitor-mode/</loc>
     <lastmod>2024-12-31T08:05:09-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/guides/kali-linux/gps-configuration/</loc>
+    <loc>http://localhost:1313/guides/kali-linux/gps-configuration/</loc>
     <lastmod>2024-12-31T07:34:40-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/guides/kali-linux/alfa-awus036ach/</loc>
+    <loc>http://localhost:1313/guides/kali-linux/alfa-awus036ach/</loc>
     <lastmod>2024-12-31T06:38:15-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/guides/kali-linux/</loc>
+    <loc>http://localhost:1313/guides/kali-linux/</loc>
     <lastmod>2024-12-30T18:50:23-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/guides/kali-linux/initial-setup/</loc>
+    <loc>http://localhost:1313/guides/kali-linux/initial-setup/</loc>
     <lastmod>2024-12-30T18:49:00-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/tips/vs-xaml-unpackaged-comexception-classnotreg/</loc>
+    <loc>http://localhost:1313/tips/vs-xaml-unpackaged-comexception-classnotreg/</loc>
     <lastmod>2024-12-30T14:35:27-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/tips/</loc>
+    <loc>http://localhost:1313/tips/</loc>
     <lastmod>2024-12-30T14:23:22-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/guides/</loc>
+    <loc>http://localhost:1313/guides/</loc>
     <lastmod>2024-12-30T14:23:19-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2024-12-30T14:07:07-05:00</lastmod>
   </url><url>
-    <loc>https://hobobandy.tips/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://hobobandy.tips/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>
