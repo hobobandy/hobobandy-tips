@@ -1,0 +1,148 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hobobandy – GPS</title>
+    <link>https://hobobandy.tips/electronics/gps/</link>
+    <description>Recent content in GPS on hobobandy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Jun 2025 22:11:02 -0400</lastBuildDate>
+    
+	  <atom:link href="https://hobobandy.tips/electronics/gps/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Sub-microsecond Time Synchronization Using PPS</title>
+      <link>https://hobobandy.tips/electronics/gps/sub-microsecond-time-synchronization-using-pps/</link>
+      <pubDate>Fri, 06 Jun 2025 22:16:42 -0400</pubDate>
+      
+      <guid>https://hobobandy.tips/electronics/gps/sub-microsecond-time-synchronization-using-pps/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Context&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;context&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#context&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This is a side quest while trying to build my own &lt;a href=&#34;https://github.com/krakenrf/krakensdr_docs/wiki&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kraken SDR&lt;/a&gt; using 5x RTL-SDR. I was reading about how to achieve phase coherence, stumbled on PPS synchronization and figured it&amp;rsquo;d be simple to implement. Not so much at first, because I was using a UART GPS module with the TTL dongle. Then I saw my small GPS module for the &lt;a href=&#34;https://wardriver.uk/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Joseph Hewitt&amp;rsquo;s Wardriver Board&lt;/a&gt; uses TTL and PPS pinouts, so a few minutes later and here we are!&lt;/p&gt;
+&lt;h2&gt;Implementation&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;implementation&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#implementation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The host is synchronized to GPS time via a USB GPS/GNSS receiver sending NMEA and PPS signals. The NMEA sentences are received via SHM (shared memory) from gpsd, and the PPS signal is used as the primary synchronization reference through Chrony. The system operates as a stratum 1 NTP source, which is the highest precision level that a computer can realistically achieve.&lt;/p&gt;
+&lt;h2&gt;GPSD Configuration&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;gpsd-configuration&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#gpsd-configuration&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Edit the file &lt;code&gt;/etc/default/gpsd&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Add the device path to the serial converter dongle:&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;DEVICES=&amp;#34;/dev/ttyUSB0&amp;#34;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add the following options to use readonly mode, and start polling right away:&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;GPSD_OPTIONS=&amp;#34;-b -n&amp;#34;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Chrony Configuration&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;chrony-configuration&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#chrony-configuration&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Edit the file &lt;code&gt;/etc/chrony/chrony.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Comment out any default &lt;code&gt;pool&lt;/code&gt; or &lt;code&gt;server&lt;/code&gt; lines, or append the &lt;code&gt;noselect&lt;/code&gt; option to keep the NTP sources for comparison, but not synchronization.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add the lines below to use shared memory to receive NMEA sentences from gpsd:&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;refclock SHM 0 offset 0.5 delay 0.2 refid NMEA noselect
+refclock SHM 1 refid PPS lock NMEA&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Chrony Commands&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;chrony-commands&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#chrony-commands&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;code&gt;chronyc sources&lt;/code&gt; - Display sources, offsets, and which source may be selected for synchronization. (&lt;code&gt;#* PPS&lt;/code&gt; should be displayed when PPS is working)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add &lt;code&gt;-v&lt;/code&gt; to get column definitions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;chronyc sourcestats&lt;/code&gt; - Display additional offsets to the basic &lt;code&gt;sources&lt;/code&gt; command.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add &lt;code&gt;-v&lt;/code&gt; to get column definitions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;chronyc tracking&lt;/code&gt; - Display system time, detailed offsets and sync status.&lt;/p&gt;
+&lt;h2&gt;PPS Tools&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;pps-tools&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#pps-tools&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Kali Linux has &lt;code&gt;ppscheck&lt;/code&gt; installed by default, and can be used to test if the &lt;code&gt;/dev/pps0&lt;/code&gt; device is working properly:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ppscheck /dev/pps0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Alternatively, you can install additional PPS tools helpful with debugging PPS using &lt;code&gt;sudo apt install pps-tools&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ppstest /dev/pps0&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;ATGM336H GPS Breakout Module&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;atgm336h-gps-breakout-module&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#atgm336h-gps-breakout-module&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Component List&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;component-list&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#component-list&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ATGM336H GPS Breakout Module &lt;a href=&#34;https://www.amazon.com/dp/B09LQDG1HY&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Amazon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Waveshare Industrial USB Dongle to TTL (FT232RNL) &lt;a href=&#34;https://www.amazon.com/dp/B087RJ7X32&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Amazon&lt;/a&gt; - &lt;a href=&#34;https://www.waveshare.com/wiki/USB_TO_TTL&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Waveshare Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;USB extension cable (optional, but recommended for stress relief and to improve GPS antenna placement if using a short antenna)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Wiring Diagram&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;wiring-diagram&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#wiring-diagram&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;em&gt;Pictures coming soon&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Make sure you change the voltage switch to 5V configuration, 3V3 doesn&amp;rsquo;t seem to supply enough current to power the module - even though it&amp;rsquo;s listed as using up to 3.6V. There is a capacitor to regular power, so providing 5V won&amp;rsquo;t damage the module.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;ATGM336H&lt;/th&gt;
+          &lt;th&gt;Waveshare Dongle&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;RX&lt;/td&gt;
+          &lt;td&gt;TX&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;TX&lt;/td&gt;
+          &lt;td&gt;RX&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;GND&lt;/td&gt;
+          &lt;td&gt;GND&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;VCC&lt;/td&gt;
+          &lt;td&gt;VCC&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;PPS&lt;/td&gt;
+          &lt;td&gt;DCD&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

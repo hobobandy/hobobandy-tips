@@ -9,24 +9,29 @@ theme = 'hextra'
   weight = 1
 
 [[menu.main]]
+  name = 'Electronics'
+  pageRef = '/electronics'
+  weight = 2
+
+[[menu.main]]
   name = 'Guides'
   pageRef = '/guides'
-  weight = 2
+  weight = 3
 
 [[menu.main]]
   name = 'Tips'
   pageRef = '/tips'
-  weight = 3
+  weight = 4
 
 [[menu.main]]
   name = 'Search'
-  weight = 4
+  weight = 5
   [menu.main.params]
   type = 'search'
 
 [[menu.main]]
   name = 'GitHub'
-  weight = 5
+  weight = 6
   url = 'https://github.com/hobobandy'
   [menu.main.params]
   icon = 'github'
