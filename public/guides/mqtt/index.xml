@@ -1,0 +1,119 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hobobandy – MQTT</title>
+    <link>https://hobobandy.tips/guides/mqtt/</link>
+    <description>Recent content in MQTT on hobobandy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Jul 2025 07:35:38 -0400</lastBuildDate>
+    
+	  <atom:link href="https://hobobandy.tips/guides/mqtt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Kismet MQTT</title>
+      <link>https://hobobandy.tips/guides/mqtt/kismet-mqtt/</link>
+      <pubDate>Sun, 06 Jul 2025 07:35:18 -0400</pubDate>
+      
+      <guid>https://hobobandy.tips/guides/mqtt/kismet-mqtt/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet&amp;rsquo;s MQTT datasource to ingest WiFi and Bluetooth scans from the &lt;a href=&#34;https://www.networksurvey.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Network Survey App&lt;/a&gt;. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.&lt;/p&gt;
+&lt;p&gt;Initially, I thought I&amp;rsquo;d have to create a translator from the App&amp;rsquo;s format to Kismet&amp;rsquo;s format, then I remembered of &lt;a href=&#34;https://nodered.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Node-RED&lt;/a&gt;. Since I&amp;rsquo;m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:&lt;/p&gt;
+&lt;p&gt;MQTT IN -&amp;gt; FUNCTION -&amp;gt; MQTT OUT&lt;/p&gt;
+&lt;h2&gt;MQTT IN Topics&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;mqtt-in-topics&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mqtt-in-topics&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;WiFi: &lt;code&gt;80211_beacon_message&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Bluetooth: &lt;code&gt;bluetooth_message&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;MQTT OUT Topics&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;mqtt-out-topics&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mqtt-out-topics&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;WiFi: &lt;code&gt;DOT11SCAN&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Bluetooth: &lt;code&gt;BLUETOOTHSCAN&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;Functions&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;functions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#functions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;WiFi&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;wifi&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#wifi&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;let timestamp = Date.parse(msg.payload.data.deviceTime);
+
+let capabilities = [];
+
+if (msg.payload.data.encryptionType != &amp;#34;&amp;#34;)
+    capabilities.push(`[${msg.payload.data.encryptionType}]`);
+if (msg.payload.data.wps == true)
+    capabilities.push(&amp;#34;[WPS]&amp;#34;);
+
+msg.payload = {
+    identity: msg.payload.data.deviceName,
+    timestamp: Math.round(timestamp / 1000),
+    ssid: msg.payload.data.ssid,
+    bssid: msg.payload.data.bssid,
+    capabilities: capabilities.join(&amp;#34;&amp;#34;),
+    channel: msg.payload.data.channel.toString(),
+    freqkhz: msg.payload.data.frequencyMhz,
+    signal: msg.payload.data.signalStrength,
+    lat: msg.payload.data.latitude,
+    lon: msg.payload.data.longitude,
+    alt: msg.payload.data.altitude,
+    spd: msg.payload.data.speed
+};
+
+return msg;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Bluetooth&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;bluetooth&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#bluetooth&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;let timestamp = Date.parse(msg.payload.data.deviceTime);
+
+let devicetype = &amp;#34;BT&amp;#34;;
+
+switch (msg.payload.data.supportedTechnologies) {
+    case &amp;#34;LE&amp;#34;:
+        devicetype = &amp;#34;BTLE&amp;#34;;
+    case &amp;#34;BR_EDR&amp;#34;:
+        devicetype = &amp;#34;BR/EDR&amp;#34;;
+    case &amp;#34;DUAL&amp;#34;:
+        devicetype = &amp;#34;BTLE&amp;#34;;
+}
+    
+
+msg.payload = {
+    identity: msg.payload.data.deviceName,
+    timestamp: Math.round(timestamp / 1000),
+    btaddr: msg.payload.data.sourceAddress,
+    name: msg.payload.data.otaDeviceName,
+    devicetype: devicetype,
+    signal: msg.payload.data.signalStrength,
+    lat: msg.payload.data.latitude,
+    lon: msg.payload.data.longitude,
+    alt: msg.payload.data.altitude,
+    spd: msg.payload.data.speed
+};
+
+return msg;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
