@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://hobobandy.tips/mqtt/</loc>
+    <lastmod>2025-07-06T07:35:38-04:00</lastmod>
+  </url><url>
+    <loc>https://hobobandy.tips/mqtt/kismet-mqtt/</loc>
+    <lastmod>2025-07-06T07:35:18-04:00</lastmod>
+  </url><url>
     <loc>https://hobobandy.tips/electronics/gps/sub-microsecond-time-synchronization-using-pps/</loc>
     <lastmod>2025-06-06T22:16:42-04:00</lastmod>
   </url><url>
