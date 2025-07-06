@@ -11,13 +11,14 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 <title>Kismet MQTT – hobobandy</title>
   <meta name="description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet’s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
-To support mode MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
-Initially, I thought I’d have to create a translator from the App’s format to Kismet’s format, then I remembered of Node-RED. Since I’m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:" /><link rel="canonical" href="https://hobobandy.tips/guides/mqtt/kismet-mqtt/" itemprop="url" />
+To support more MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
+Kismet Source DefinitionPart of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS." /><link rel="canonical" href="https://hobobandy.tips/guides/mqtt/kismet-mqtt/" itemprop="url" />
 
 <meta property="og:title" content="Kismet MQTT" />
 <meta property="og:description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet&rsquo;s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
-To support mode MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
-Initially, I thought I&rsquo;d have to create a translator from the App&rsquo;s format to Kismet&rsquo;s format, then I remembered of Node-RED. Since I&rsquo;m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:" />
+To support more MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
+Kismet Source Definition
+    Part of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hobobandy.tips/guides/mqtt/kismet-mqtt/" /><meta property="article:section" content="guides" />
 <meta property="article:published_time" content="2025-07-06T07:35:18-04:00" />
@@ -25,16 +26,16 @@ Initially, I thought I&rsquo;d have to create a translator from the App&rsquo;s 
 
   <meta itemprop="name" content="Kismet MQTT">
   <meta itemprop="description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet’s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
-To support mode MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
-Initially, I thought I’d have to create a translator from the App’s format to Kismet’s format, then I remembered of Node-RED. Since I’m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:">
+To support more MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
+Kismet Source DefinitionPart of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.">
   <meta itemprop="datePublished" content="2025-07-06T07:35:18-04:00">
   <meta itemprop="dateModified" content="2025-07-06T07:35:18-04:00">
-  <meta itemprop="wordCount" content="318">
+  <meta itemprop="wordCount" content="375">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Kismet MQTT">
   <meta name="twitter:description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet’s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
-To support mode MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
-Initially, I thought I’d have to create a translator from the App’s format to Kismet’s format, then I remembered of Node-RED. Since I’m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:">
+To support more MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
+Kismet Source DefinitionPart of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.">
 
     <link rel="preload" href="/css/compiled/main.min.bc4b65361c6d99b81019c2e0ce1db3b695e03660fcd1360b0900a07df79691e0.css" as="style" integrity="sha256-vEtlNhxtmbgQGcLgzh2ztpXgNmD80TYLCQCgffeWkeA=" />
     <link href="/css/compiled/main.min.bc4b65361c6d99b81019c2e0ce1db3b695e03660fcd1360b0900a07df79691e0.css" rel="stylesheet" integrity="sha256-vEtlNhxtmbgQGcLgzh2ztpXgNmD80TYLCQCgffeWkeA=" />
@@ -360,6 +361,18 @@ Initially, I thought I’d have to create a translator from the App’s format t
   
     <ul class='hx:flex hx:flex-col hx:gap-1 hx:relative hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:dark:before:bg-neutral-800 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:pr-3 hx:rtl:before:right-0 hx:ltr:ml-3 hx:rtl:mr-3'><li>
               <a
+                href="#kismet-source-definition"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Kismet Source Definition</a>
+            </li>
+          <li>
+              <a
+                href="#node-red-configuration"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >Node-RED Configuration</a>
+            </li>
+          <li>
+              <a
                 href="#mqtt-in-topics"
                 class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
               >MQTT IN Topics</a>
@@ -493,6 +506,14 @@ Initially, I thought I’d have to create a translator from the App’s format t
 <nav class="hextra-toc hx:order-last hx:hidden hx:w-64 hx:shrink-0 hx:xl:block hx:print:hidden hx:px-4" aria-label="table of contents">
     <div class="hextra-scrollbar hx:sticky hx:top-16 hx:overflow-y-auto hx:pr-4 hx:pt-6 hx:text-sm [hyphens:auto] hx:max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] hx:ltr:-mr-4 hx:rtl:-ml-4"><p class="hx:mb-4 hx:font-semibold hx:tracking-tight">On this page</p><ul>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-semibold hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#kismet-source-definition">Kismet Source Definition
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-semibold hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#node-red-configuration">Node-RED Configuration
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
         <a class="hx:font-semibold hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#mqtt-in-topics">MQTT IN Topics
         </a>
       </li>
@@ -551,8 +572,26 @@ Initially, I thought I’d have to create a translator from the App’s format t
         <div class="content">
           <h1>Kismet MQTT</h1>
           <p>Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet&rsquo;s MQTT datasource to ingest WiFi and Bluetooth scans from the <a href="https://www.networksurvey.app/" target="_blank" rel="noopener">Network Survey App</a>. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.</p>
-<p>To support mode MQTT sources, I <a href="https://github.com/hobobandy/kismet/tree/dev/feature/mqtt" target="_blank" rel="noopener">started a feature branch</a> and added support for at least <a href="https://www.kismetwireless.net/docs/api/wifi_scanningmode/" target="_blank" rel="noopener">WiFi scan reports</a> and <a href="https://www.kismetwireless.net/docs/api/bluetooth_scanningmode/" target="_blank" rel="noopener">Bluetooth scan reports</a>.</p>
-<p>Initially, I thought I&rsquo;d have to create a translator from the App&rsquo;s format to Kismet&rsquo;s format, then I remembered of <a href="https://nodered.org/" target="_blank" rel="noopener">Node-RED</a>. Since I&rsquo;m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:</p>
+<p>To support more MQTT sources, I <a href="https://github.com/hobobandy/kismet/tree/dev/feature/mqtt" target="_blank" rel="noopener">started a feature branch</a> and added support for at least <a href="https://www.kismetwireless.net/docs/api/wifi_scanningmode/" target="_blank" rel="noopener">WiFi scan reports</a> and <a href="https://www.kismetwireless.net/docs/api/bluetooth_scanningmode/" target="_blank" rel="noopener">Bluetooth scan reports</a>.</p>
+<h2>Kismet Source Definition<span class="hx:absolute hx:-mt-20" id="kismet-source-definition"></span>
+    <a href="#kismet-source-definition" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Part of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.</p>
+<p>The mapping in the source definition still needs to be documented for each datasource type.</p>
+<p>I still need to test the TLS logic, my MQTT broker isn&rsquo;t configured to use TLS yet.</p>
+<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><pre><code>source=mqtt:host=127.0.0.1,port=1883,topic=DOT11SCAN,mapping=DOT11SCAN,user=kismet,password=kismet
+source=mqtt:host=127.0.0.1,port=1883,topic=BLUETOOTHSCAN,mapping=BLUETOOTHSCAN,user=kismet,password=kismet</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+    <div class="success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<h2>Node-RED Configuration<span class="hx:absolute hx:-mt-20" id="node-red-configuration"></span>
+    <a href="#node-red-configuration" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Initially, I thought I&rsquo;d have to create a translator from the App&rsquo;s format to Kismet&rsquo;s format, then I remembered of <a href="https://nodered.org/" target="_blank" rel="noopener">Node-RED</a>. Since I&rsquo;m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:</p>
 <p>
     <img src="../kismet-mqtt-nodered1.png" alt="MQTT IN -&gt; FUNCTION -&gt; MQTT OUT"  loading="lazy" /></p>
 <h2>MQTT IN Topics<span class="hx:absolute hx:-mt-20" id="mqtt-in-topics"></span>

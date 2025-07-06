@@ -6,7 +6,22 @@ title = 'Kismet MQTT'
 
 Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet's MQTT datasource to ingest WiFi and Bluetooth scans from the [Network Survey App](https://www.networksurvey.app/). Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
 
-To support mode MQTT sources, I [started a feature branch](https://github.com/hobobandy/kismet/tree/dev/feature/mqtt) and added support for at least [WiFi scan reports](https://www.kismetwireless.net/docs/api/wifi_scanningmode/) and [Bluetooth scan reports](https://www.kismetwireless.net/docs/api/bluetooth_scanningmode/).
+To support more MQTT sources, I [started a feature branch](https://github.com/hobobandy/kismet/tree/dev/feature/mqtt) and added support for at least [WiFi scan reports](https://www.kismetwireless.net/docs/api/wifi_scanningmode/) and [Bluetooth scan reports](https://www.kismetwireless.net/docs/api/bluetooth_scanningmode/).
+
+## Kismet Source Definition
+
+Part of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.
+
+The mapping in the source definition still needs to be documented for each datasource type.
+
+I still need to test the TLS logic, my MQTT broker isn't configured to use TLS yet.
+
+```
+source=mqtt:host=127.0.0.1,port=1883,topic=DOT11SCAN,mapping=DOT11SCAN,user=kismet,password=kismet
+source=mqtt:host=127.0.0.1,port=1883,topic=BLUETOOTHSCAN,mapping=BLUETOOTHSCAN,user=kismet,password=kismet
+```
+
+## Node-RED Configuration
 
 Initially, I thought I'd have to create a translator from the App's format to Kismet's format, then I remembered of [Node-RED](https://nodered.org/). Since I'm running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:
 
