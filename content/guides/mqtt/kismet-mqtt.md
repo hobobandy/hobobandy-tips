@@ -10,7 +10,7 @@ To support mode MQTT sources, I [started a feature branch](https://github.com/ho
 
 Initially, I thought I'd have to create a translator from the App's format to Kismet's format, then I remembered of [Node-RED](https://nodered.org/). Since I'm running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:
 
-MQTT IN -> FUNCTION -> MQTT OUT
+![MQTT IN -> FUNCTION -> MQTT OUT](kismet-mqtt-nodered1.png)
 
 ## MQTT IN Topics
 
@@ -58,8 +58,12 @@ return msg;
 
 ### Bluetooth
 
+#### Non-DUAL
+
 ```
-let timestamp = Date.parse(msg.payload.data.deviceTime);
+if (msg.payload.data.supportedTechnologies == "DUAL") {
+    return;
+}
 
 let devicetype = "BT";
 
@@ -68,10 +72,9 @@ switch (msg.payload.data.supportedTechnologies) {
         devicetype = "BTLE";
     case "BR_EDR":
         devicetype = "BR/EDR";
-    case "DUAL":
-        devicetype = "BTLE";
 }
-    
+
+let timestamp = Date.parse(msg.payload.data.deviceTime);
 
 msg.payload = {
     identity: msg.payload.data.deviceName,
@@ -79,6 +82,56 @@ msg.payload = {
     btaddr: msg.payload.data.sourceAddress,
     name: msg.payload.data.otaDeviceName,
     devicetype: devicetype,
+    signal: msg.payload.data.signalStrength,
+    lat: msg.payload.data.latitude,
+    lon: msg.payload.data.longitude,
+    alt: msg.payload.data.altitude,
+    spd: msg.payload.data.speed
+};
+
+return msg;
+```
+
+#### DUAL to BTLE
+
+```
+if (msg.payload.data.supportedTechnologies != "DUAL") {
+    return;
+}
+
+let timestamp = Date.parse(msg.payload.data.deviceTime);
+
+msg.payload = {
+    identity: msg.payload.data.deviceName,
+    timestamp: Math.round(timestamp / 1000),
+    btaddr: msg.payload.data.sourceAddress,
+    name: msg.payload.data.otaDeviceName,
+    devicetype: "BTLE",
+    signal: msg.payload.data.signalStrength,
+    lat: msg.payload.data.latitude,
+    lon: msg.payload.data.longitude,
+    alt: msg.payload.data.altitude,
+    spd: msg.payload.data.speed
+};
+
+return msg;
+```
+
+#### DUAL to BR/EDR
+
+```
+if (msg.payload.data.supportedTechnologies != "DUAL") {
+    return;
+}
+
+let timestamp = Date.parse(msg.payload.data.deviceTime);
+
+msg.payload = {
+    identity: msg.payload.data.deviceName,
+    timestamp: Math.round(timestamp / 1000),
+    btaddr: msg.payload.data.sourceAddress,
+    name: msg.payload.data.otaDeviceName,
+    devicetype: "BR/EDR",
     signal: msg.payload.data.signalStrength,
     lat: msg.payload.data.latitude,
     lon: msg.payload.data.longitude,
