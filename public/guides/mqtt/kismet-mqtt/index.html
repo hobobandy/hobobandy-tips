@@ -11,10 +11,12 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 <title>Kismet MQTT – hobobandy</title>
   <meta name="description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet’s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
+To support mode MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
 Initially, I thought I’d have to create a translator from the App’s format to Kismet’s format, then I remembered of Node-RED. Since I’m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:" /><link rel="canonical" href="https://hobobandy.tips/guides/mqtt/kismet-mqtt/" itemprop="url" />
 
 <meta property="og:title" content="Kismet MQTT" />
 <meta property="og:description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet&rsquo;s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
+To support mode MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
 Initially, I thought I&rsquo;d have to create a translator from the App&rsquo;s format to Kismet&rsquo;s format, then I remembered of Node-RED. Since I&rsquo;m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hobobandy.tips/guides/mqtt/kismet-mqtt/" /><meta property="article:section" content="guides" />
@@ -23,13 +25,15 @@ Initially, I thought I&rsquo;d have to create a translator from the App&rsquo;s 
 
   <meta itemprop="name" content="Kismet MQTT">
   <meta itemprop="description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet’s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
+To support mode MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
 Initially, I thought I’d have to create a translator from the App’s format to Kismet’s format, then I remembered of Node-RED. Since I’m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:">
   <meta itemprop="datePublished" content="2025-07-06T07:35:18-04:00">
   <meta itemprop="dateModified" content="2025-07-06T07:35:18-04:00">
-  <meta itemprop="wordCount" content="215">
+  <meta itemprop="wordCount" content="238">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Kismet MQTT">
   <meta name="twitter:description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet’s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
+To support mode MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
 Initially, I thought I’d have to create a translator from the App’s format to Kismet’s format, then I remembered of Node-RED. Since I’m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:">
 
     <link rel="preload" href="/css/compiled/main.min.bc4b65361c6d99b81019c2e0ce1db3b695e03660fcd1360b0900a07df79691e0.css" as="style" integrity="sha256-vEtlNhxtmbgQGcLgzh2ztpXgNmD80TYLCQCgffeWkeA=" />
@@ -535,6 +539,7 @@ Initially, I thought I’d have to create a translator from the App’s format t
         <div class="content">
           <h1>Kismet MQTT</h1>
           <p>Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet&rsquo;s MQTT datasource to ingest WiFi and Bluetooth scans from the <a href="https://www.networksurvey.app/" target="_blank" rel="noopener">Network Survey App</a>. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.</p>
+<p>To support mode MQTT sources, I <a href="https://github.com/hobobandy/kismet/tree/dev/feature/mqtt" target="_blank" rel="noopener">started a feature branch</a> and added support for at least <a href="https://www.kismetwireless.net/docs/api/wifi_scanningmode/" target="_blank" rel="noopener">WiFi scan reports</a> and <a href="https://www.kismetwireless.net/docs/api/bluetooth_scanningmode/" target="_blank" rel="noopener">Bluetooth scan reports</a>.</p>
 <p>Initially, I thought I&rsquo;d have to create a translator from the App&rsquo;s format to Kismet&rsquo;s format, then I remembered of <a href="https://nodered.org/" target="_blank" rel="noopener">Node-RED</a>. Since I&rsquo;m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:</p>
 <p>MQTT IN -&gt; FUNCTION -&gt; MQTT OUT</p>
 <h2>MQTT IN Topics<span class="hx:absolute hx:-mt-20" id="mqtt-in-topics"></span>
