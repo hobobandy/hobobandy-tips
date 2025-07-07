@@ -30,7 +30,7 @@ To support more MQTT sources, I started a feature branch and added support for a
 Kismet Source DefinitionPart of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.">
   <meta itemprop="datePublished" content="2025-07-06T07:35:18-04:00">
   <meta itemprop="dateModified" content="2025-07-06T07:35:18-04:00">
-  <meta itemprop="wordCount" content="375">
+  <meta itemprop="wordCount" content="443">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Kismet MQTT">
   <meta name="twitter:description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet’s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
@@ -367,27 +367,15 @@ Kismet Source DefinitionPart of the feature branch is to fix the current authen
             </li>
           <li>
               <a
+                href="#ads-b-runtime-command"
+                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
+              >ADS-B Runtime Command</a>
+            </li>
+          <li>
+              <a
                 href="#node-red-configuration"
                 class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
               >Node-RED Configuration</a>
-            </li>
-          <li>
-              <a
-                href="#mqtt-in-topics"
-                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
-              >MQTT IN Topics</a>
-            </li>
-          <li>
-              <a
-                href="#mqtt-out-topics"
-                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
-              >MQTT OUT Topics</a>
-            </li>
-          <li>
-              <a
-                href="#functions"
-                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
-              >Functions</a>
             </li>
           </ul>
   
@@ -510,19 +498,11 @@ Kismet Source DefinitionPart of the feature branch is to fix the current authen
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:font-semibold hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#ads-b-runtime-command">ADS-B Runtime Command
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
         <a class="hx:font-semibold hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#node-red-configuration">Node-RED Configuration
-        </a>
-      </li>
-      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:font-semibold hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#mqtt-in-topics">MQTT IN Topics
-        </a>
-      </li>
-      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:font-semibold hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#mqtt-out-topics">MQTT OUT Topics
-        </a>
-      </li>
-      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:font-semibold hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#functions">Functions
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
@@ -530,19 +510,47 @@ Kismet Source DefinitionPart of the feature branch is to fix the current authen
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#mqtt-topics">MQTT Topics
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#function">Function
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
         <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#bluetooth">Bluetooth
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#non-dual">Non-DUAL
+        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#mqtt-topics-1">MQTT Topics
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#dual-to-btle">DUAL to BTLE
+        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#functions">Functions
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#dual-to-bredr">DUAL to BR/EDR
+        <a class="hx:ltr:pl-12 hx:rtl:pr-12 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#non-dual">Non-DUAL
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-12 hx:rtl:pr-12 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#dual-to-btle">DUAL to BTLE
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-12 hx:rtl:pr-12 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#dual-to-bredr">DUAL to BR/EDR
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#ads-b">ADS-B
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#mqtt-topic">MQTT Topic
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#function-1">Function
         </a>
       </li></ul>
       <div class="hx:mt-8 hx:border-t hx:bg-white hx:pt-8 hx:shadow-[0_-12px_16px_white] hx:dark:bg-dark hx:dark:shadow-[0_-12px_16px_#111] hx:sticky hx:bottom-0 hx:flex hx:flex-col hx:items-start hx:gap-2 hx:pb-8 hx:border-gray-200 hx:dark:border-neutral-800 hx:contrast-more:border-t hx:contrast-more:border-neutral-400 hx:contrast-more:shadow-none hx:contrast-more:dark:border-neutral-400">
@@ -575,12 +583,27 @@ Kismet Source DefinitionPart of the feature branch is to fix the current authen
 <p>To support more MQTT sources, I <a href="https://github.com/hobobandy/kismet/tree/dev/feature/mqtt" target="_blank" rel="noopener">started a feature branch</a> and added support for at least <a href="https://www.kismetwireless.net/docs/api/wifi_scanningmode/" target="_blank" rel="noopener">WiFi scan reports</a> and <a href="https://www.kismetwireless.net/docs/api/bluetooth_scanningmode/" target="_blank" rel="noopener">Bluetooth scan reports</a>.</p>
 <h2>Kismet Source Definition<span class="hx:absolute hx:-mt-20" id="kismet-source-definition"></span>
     <a href="#kismet-source-definition" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Part of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.</p>
-<p>The mapping in the source definition still needs to be documented for each datasource type.</p>
 <p>I still need to test the TLS logic, my MQTT broker isn&rsquo;t configured to use TLS yet.</p>
+<p>The <code>mapping</code> in the source definition is case-sensative, and I still need to confirm other data types.</p>
 <div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
 
 <div><pre><code>source=mqtt:host=127.0.0.1,port=1883,topic=DOT11SCAN,mapping=DOT11SCAN,user=kismet,password=kismet
-source=mqtt:host=127.0.0.1,port=1883,topic=BLUETOOTHSCAN,mapping=BLUETOOTHSCAN,user=kismet,password=kismet</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+source=mqtt:host=127.0.0.1,port=1883,topic=BLUETOOTHSCAN,mapping=BLUETOOTHSCAN,user=kismet,password=kismet
+source=mqtt:host=127.0.0.1,port=1883,topic=ADSB,mapping=adsb,user=kismet,password=kismet</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+    <div class="success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<h2>ADS-B Runtime Command<span class="hx:absolute hx:-mt-20" id="ads-b-runtime-command"></span>
+    <a href="#ads-b-runtime-command" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Change the <code>--net-connector</code> parameters to reflect where your Node-RED instance resides and the port its listening on for ADS-B messages.</p>
+<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><pre><code>readsb --quiet --device-type rtlsdr --gain auto --net --net-connector=127.0.0.1,8585,raw_out</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
   <button
     class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
     title="Copy code"
@@ -592,17 +615,20 @@ source=mqtt:host=127.0.0.1,port=1883,topic=BLUETOOTHSCAN,mapping=BLUETOOTHSCAN,u
 </div>
 <h2>Node-RED Configuration<span class="hx:absolute hx:-mt-20" id="node-red-configuration"></span>
     <a href="#node-red-configuration" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Initially, I thought I&rsquo;d have to create a translator from the App&rsquo;s format to Kismet&rsquo;s format, then I remembered of <a href="https://nodered.org/" target="_blank" rel="noopener">Node-RED</a>. Since I&rsquo;m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:</p>
-<p>
-    <img src="../kismet-mqtt-nodered1.png" alt="MQTT IN -&gt; FUNCTION -&gt; MQTT OUT"  loading="lazy" /></p>
-<h2>MQTT IN Topics<span class="hx:absolute hx:-mt-20" id="mqtt-in-topics"></span>
-    <a href="#mqtt-in-topics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>WiFi: <code>80211_beacon_message</code></p>
-<p>Bluetooth: <code>bluetooth_message</code></p>
-<h2>MQTT OUT Topics<span class="hx:absolute hx:-mt-20" id="mqtt-out-topics"></span>
-    <a href="#mqtt-out-topics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>WiFi: <code>DOT11SCAN</code></p>
-<p>Bluetooth: <code>BLUETOOTHSCAN</code></p>
-<h2>Functions<span class="hx:absolute hx:-mt-20" id="functions"></span>
-    <a href="#functions" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>WiFi<span class="hx:absolute hx:-mt-20" id="wifi"></span>
-    <a href="#wifi" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+<h3>WiFi<span class="hx:absolute hx:-mt-20" id="wifi"></span>
+    <a href="#wifi" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../kismet-mqtt-nodered-wifi.png" alt="MQTT IN -&gt; FUNCTION -&gt; MQTT OUT"  loading="lazy" /></p>
+<h4>MQTT Topics<span class="hx:absolute hx:-mt-20" id="mqtt-topics"></span>
+    <a href="#mqtt-topics" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>
+<p>MQTT IN Topic: <code>80211_beacon_message</code></p>
+</li>
+<li>
+<p>MQTT OUT Topic: <code>DOT11SCAN</code></p>
+</li>
+</ul>
+<h4>Function<span class="hx:absolute hx:-mt-20" id="function"></span>
+    <a href="#function" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
 
 <div><pre><code>let timestamp = Date.parse(msg.payload.data.deviceTime);
 
@@ -614,7 +640,6 @@ if (msg.payload.data.wps == true)
     capabilities.push(&#34;[WPS]&#34;);
 
 msg.payload = {
-    identity: msg.payload.data.deviceName,
     timestamp: Math.round(timestamp / 1000),
     ssid: msg.payload.data.ssid,
     bssid: msg.payload.data.bssid,
@@ -639,8 +664,16 @@ return msg;</code></pre></div><div class="hextra-code-copy-btn-container hx:opac
 </div>
 </div>
 <h3>Bluetooth<span class="hx:absolute hx:-mt-20" id="bluetooth"></span>
-    <a href="#bluetooth" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>Non-DUAL<span class="hx:absolute hx:-mt-20" id="non-dual"></span>
-    <a href="#non-dual" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+    <a href="#bluetooth" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../kismet-mqtt-nodered-bluetooth.png" alt="MQTT IN -&gt; FUNCTION -&gt; MQTT OUT"  loading="lazy" /></p>
+<h4>MQTT Topics<span class="hx:absolute hx:-mt-20" id="mqtt-topics-1"></span>
+    <a href="#mqtt-topics-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>MQTT IN Topic: <code>bluetooth_message</code></li>
+<li>MQTT OUT Topic: <code>BLUETOOTHSCAN</code></li>
+</ul>
+<h4>Functions<span class="hx:absolute hx:-mt-20" id="functions"></span>
+    <a href="#functions" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><h5>Non-DUAL<span class="hx:absolute hx:-mt-20" id="non-dual"></span>
+    <a href="#non-dual" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
 
 <div><pre><code>if (msg.payload.data.supportedTechnologies == &#34;DUAL&#34;) {
     return;
@@ -680,8 +713,8 @@ return msg;</code></pre></div><div class="hextra-code-copy-btn-container hx:opac
   </button>
 </div>
 </div>
-<h4>DUAL to BTLE<span class="hx:absolute hx:-mt-20" id="dual-to-btle"></span>
-    <a href="#dual-to-btle" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+<h5>DUAL to BTLE<span class="hx:absolute hx:-mt-20" id="dual-to-btle"></span>
+    <a href="#dual-to-btle" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
 
 <div><pre><code>if (msg.payload.data.supportedTechnologies != &#34;DUAL&#34;) {
     return;
@@ -712,8 +745,8 @@ return msg;</code></pre></div><div class="hextra-code-copy-btn-container hx:opac
   </button>
 </div>
 </div>
-<h4>DUAL to BR/EDR<span class="hx:absolute hx:-mt-20" id="dual-to-bredr"></span>
-    <a href="#dual-to-bredr" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+<h5>DUAL to BR/EDR<span class="hx:absolute hx:-mt-20" id="dual-to-bredr"></span>
+    <a href="#dual-to-bredr" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
 
 <div><pre><code>if (msg.payload.data.supportedTechnologies != &#34;DUAL&#34;) {
     return;
@@ -732,6 +765,31 @@ msg.payload = {
     lon: msg.payload.data.longitude,
     alt: msg.payload.data.altitude,
     spd: msg.payload.data.speed
+};
+
+return msg;</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+    <div class="success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<h3>ADS-B<span class="hx:absolute hx:-mt-20" id="ads-b"></span>
+    <a href="#ads-b" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../kismet-mqtt-nodered-adsb.png" alt="TCP IN -&gt; FUNCTION -&gt; MQTT OUT"  loading="lazy" /></p>
+<h4>MQTT Topic<span class="hx:absolute hx:-mt-20" id="mqtt-topic"></span>
+    <a href="#mqtt-topic" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>MQTT OUT Topic: <code>ADSB</code></li>
+</ul>
+<h4>Function<span class="hx:absolute hx:-mt-20" id="function-1"></span>
+    <a href="#function-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p><code>.trim()</code> is critical to remove the extra whitespace at the start of payload.</p>
+<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><pre><code>msg.payload = {
+    adsb: msg.payload.trim(),
 };
 
 return msg;</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">

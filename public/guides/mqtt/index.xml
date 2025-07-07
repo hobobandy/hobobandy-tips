@@ -28,12 +28,27 @@
 &lt;p&gt;To support more MQTT sources, I &lt;a href=&#34;https://github.com/hobobandy/kismet/tree/dev/feature/mqtt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;started a feature branch&lt;/a&gt; and added support for at least &lt;a href=&#34;https://www.kismetwireless.net/docs/api/wifi_scanningmode/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WiFi scan reports&lt;/a&gt; and &lt;a href=&#34;https://www.kismetwireless.net/docs/api/bluetooth_scanningmode/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bluetooth scan reports&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Kismet Source Definition&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;kismet-source-definition&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#kismet-source-definition&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Part of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.&lt;/p&gt;
-&lt;p&gt;The mapping in the source definition still needs to be documented for each datasource type.&lt;/p&gt;
 &lt;p&gt;I still need to test the TLS logic, my MQTT broker isn&amp;rsquo;t configured to use TLS yet.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;mapping&lt;/code&gt; in the source definition is case-sensative, and I still need to confirm other data types.&lt;/p&gt;
 &lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
 
 &lt;div&gt;&lt;pre&gt;&lt;code&gt;source=mqtt:host=127.0.0.1,port=1883,topic=DOT11SCAN,mapping=DOT11SCAN,user=kismet,password=kismet
-source=mqtt:host=127.0.0.1,port=1883,topic=BLUETOOTHSCAN,mapping=BLUETOOTHSCAN,user=kismet,password=kismet&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+source=mqtt:host=127.0.0.1,port=1883,topic=BLUETOOTHSCAN,mapping=BLUETOOTHSCAN,user=kismet,password=kismet
+source=mqtt:host=127.0.0.1,port=1883,topic=ADSB,mapping=adsb,user=kismet,password=kismet&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;ADS-B Runtime Command&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ads-b-runtime-command&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ads-b-runtime-command&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Change the &lt;code&gt;--net-connector&lt;/code&gt; parameters to reflect where your Node-RED instance resides and the port its listening on for ADS-B messages.&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;readsb --quiet --device-type rtlsdr --gain auto --net --net-connector=127.0.0.1,8585,raw_out&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
   &lt;button
     class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
     title=&#34;Copy code&#34;
@@ -45,17 +60,20 @@ source=mqtt:host=127.0.0.1,port=1883,topic=BLUETOOTHSCAN,mapping=BLUETOOTHSCAN,u
 &lt;/div&gt;
 &lt;h2&gt;Node-RED Configuration&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;node-red-configuration&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#node-red-configuration&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Initially, I thought I&amp;rsquo;d have to create a translator from the App&amp;rsquo;s format to Kismet&amp;rsquo;s format, then I remembered of &lt;a href=&#34;https://nodered.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Node-RED&lt;/a&gt;. Since I&amp;rsquo;m running a Home Assistant server now, I added the Node-RED community add-on and created the following flow for each scan type to do the translation:&lt;/p&gt;
-&lt;p&gt;
-    &lt;img src=&#34;../kismet-mqtt-nodered1.png&#34; alt=&#34;MQTT IN -&amp;gt; FUNCTION -&amp;gt; MQTT OUT&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;h2&gt;MQTT IN Topics&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;mqtt-in-topics&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#mqtt-in-topics&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;WiFi: &lt;code&gt;80211_beacon_message&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Bluetooth: &lt;code&gt;bluetooth_message&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;MQTT OUT Topics&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;mqtt-out-topics&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#mqtt-out-topics&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;WiFi: &lt;code&gt;DOT11SCAN&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Bluetooth: &lt;code&gt;BLUETOOTHSCAN&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;Functions&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;functions&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#functions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;WiFi&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;wifi&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#wifi&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+&lt;h3&gt;WiFi&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;wifi&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#wifi&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
+    &lt;img src=&#34;../kismet-mqtt-nodered-wifi.png&#34; alt=&#34;MQTT IN -&amp;gt; FUNCTION -&amp;gt; MQTT OUT&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h4&gt;MQTT Topics&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;mqtt-topics&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mqtt-topics&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;MQTT IN Topic: &lt;code&gt;80211_beacon_message&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;MQTT OUT Topic: &lt;code&gt;DOT11SCAN&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Function&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;function&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#function&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
 
 &lt;div&gt;&lt;pre&gt;&lt;code&gt;let timestamp = Date.parse(msg.payload.data.deviceTime);
 
@@ -67,7 +85,6 @@ if (msg.payload.data.wps == true)
     capabilities.push(&amp;#34;[WPS]&amp;#34;);
 
 msg.payload = {
-    identity: msg.payload.data.deviceName,
     timestamp: Math.round(timestamp / 1000),
     ssid: msg.payload.data.ssid,
     bssid: msg.payload.data.bssid,
@@ -92,8 +109,16 @@ return msg;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-c
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;h3&gt;Bluetooth&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;bluetooth&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#bluetooth&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Non-DUAL&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;non-dual&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#non-dual&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+    &lt;a href=&#34;#bluetooth&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
+    &lt;img src=&#34;../kismet-mqtt-nodered-bluetooth.png&#34; alt=&#34;MQTT IN -&amp;gt; FUNCTION -&amp;gt; MQTT OUT&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h4&gt;MQTT Topics&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;mqtt-topics-1&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mqtt-topics-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;MQTT IN Topic: &lt;code&gt;bluetooth_message&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;MQTT OUT Topic: &lt;code&gt;BLUETOOTHSCAN&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Functions&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;functions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#functions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;h5&gt;Non-DUAL&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;non-dual&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#non-dual&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
 
 &lt;div&gt;&lt;pre&gt;&lt;code&gt;if (msg.payload.data.supportedTechnologies == &amp;#34;DUAL&amp;#34;) {
     return;
@@ -133,8 +158,8 @@ return msg;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-c
   &lt;/button&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;h4&gt;DUAL to BTLE&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;dual-to-btle&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#dual-to-btle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+&lt;h5&gt;DUAL to BTLE&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;dual-to-btle&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#dual-to-btle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
 
 &lt;div&gt;&lt;pre&gt;&lt;code&gt;if (msg.payload.data.supportedTechnologies != &amp;#34;DUAL&amp;#34;) {
     return;
@@ -165,8 +190,8 @@ return msg;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-c
   &lt;/button&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;h4&gt;DUAL to BR/EDR&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;dual-to-bredr&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#dual-to-bredr&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+&lt;h5&gt;DUAL to BR/EDR&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;dual-to-bredr&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#dual-to-bredr&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
 
 &lt;div&gt;&lt;pre&gt;&lt;code&gt;if (msg.payload.data.supportedTechnologies != &amp;#34;DUAL&amp;#34;) {
     return;
@@ -185,6 +210,31 @@ msg.payload = {
     lon: msg.payload.data.longitude,
     alt: msg.payload.data.altitude,
     spd: msg.payload.data.speed
+};
+
+return msg;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;ADS-B&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ads-b&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ads-b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
+    &lt;img src=&#34;../kismet-mqtt-nodered-adsb.png&#34; alt=&#34;TCP IN -&amp;gt; FUNCTION -&amp;gt; MQTT OUT&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h4&gt;MQTT Topic&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;mqtt-topic&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mqtt-topic&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;MQTT OUT Topic: &lt;code&gt;ADSB&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Function&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;function-1&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#function-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;code&gt;.trim()&lt;/code&gt; is critical to remove the extra whitespace at the start of payload.&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;msg.payload = {
+    adsb: msg.payload.trim(),
 };
 
 return msg;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
