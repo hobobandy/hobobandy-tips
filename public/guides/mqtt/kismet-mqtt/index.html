@@ -30,7 +30,7 @@ To support more MQTT sources, I started a feature branch and added support for a
 Kismet Source DefinitionPart of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.">
   <meta itemprop="datePublished" content="2025-07-06T07:35:18-04:00">
   <meta itemprop="dateModified" content="2025-07-06T07:35:18-04:00">
-  <meta itemprop="wordCount" content="443">
+  <meta itemprop="wordCount" content="437">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Kismet MQTT">
   <meta name="twitter:description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet’s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
@@ -691,7 +691,6 @@ switch (msg.payload.data.supportedTechnologies) {
 let timestamp = Date.parse(msg.payload.data.deviceTime);
 
 msg.payload = {
-    identity: msg.payload.data.deviceName,
     timestamp: Math.round(timestamp / 1000),
     btaddr: msg.payload.data.sourceAddress,
     name: msg.payload.data.otaDeviceName,
@@ -723,7 +722,6 @@ return msg;</code></pre></div><div class="hextra-code-copy-btn-container hx:opac
 let timestamp = Date.parse(msg.payload.data.deviceTime);
 
 msg.payload = {
-    identity: msg.payload.data.deviceName,
     timestamp: Math.round(timestamp / 1000),
     btaddr: msg.payload.data.sourceAddress,
     name: msg.payload.data.otaDeviceName,
@@ -755,7 +753,6 @@ return msg;</code></pre></div><div class="hextra-code-copy-btn-container hx:opac
 let timestamp = Date.parse(msg.payload.data.deviceTime);
 
 msg.payload = {
-    identity: msg.payload.data.deviceName,
     timestamp: Math.round(timestamp / 1000),
     btaddr: msg.payload.data.sourceAddress,
     name: msg.payload.data.otaDeviceName,

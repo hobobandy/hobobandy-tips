@@ -136,7 +136,6 @@ switch (msg.payload.data.supportedTechnologies) {
 let timestamp = Date.parse(msg.payload.data.deviceTime);
 
 msg.payload = {
-    identity: msg.payload.data.deviceName,
     timestamp: Math.round(timestamp / 1000),
     btaddr: msg.payload.data.sourceAddress,
     name: msg.payload.data.otaDeviceName,
@@ -168,7 +167,6 @@ return msg;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-c
 let timestamp = Date.parse(msg.payload.data.deviceTime);
 
 msg.payload = {
-    identity: msg.payload.data.deviceName,
     timestamp: Math.round(timestamp / 1000),
     btaddr: msg.payload.data.sourceAddress,
     name: msg.payload.data.otaDeviceName,
@@ -200,7 +198,6 @@ return msg;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-c
 let timestamp = Date.parse(msg.payload.data.deviceTime);
 
 msg.payload = {
-    identity: msg.payload.data.deviceName,
     timestamp: Math.round(timestamp / 1000),
     btaddr: msg.payload.data.sourceAddress,
     name: msg.payload.data.otaDeviceName,

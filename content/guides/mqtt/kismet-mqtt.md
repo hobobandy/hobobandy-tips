@@ -103,7 +103,6 @@ switch (msg.payload.data.supportedTechnologies) {
 let timestamp = Date.parse(msg.payload.data.deviceTime);
 
 msg.payload = {
-    identity: msg.payload.data.deviceName,
     timestamp: Math.round(timestamp / 1000),
     btaddr: msg.payload.data.sourceAddress,
     name: msg.payload.data.otaDeviceName,
@@ -128,7 +127,6 @@ if (msg.payload.data.supportedTechnologies != "DUAL") {
 let timestamp = Date.parse(msg.payload.data.deviceTime);
 
 msg.payload = {
-    identity: msg.payload.data.deviceName,
     timestamp: Math.round(timestamp / 1000),
     btaddr: msg.payload.data.sourceAddress,
     name: msg.payload.data.otaDeviceName,
@@ -153,7 +151,6 @@ if (msg.payload.data.supportedTechnologies != "DUAL") {
 let timestamp = Date.parse(msg.payload.data.deviceTime);
 
 msg.payload = {
-    identity: msg.payload.data.deviceName,
     timestamp: Math.round(timestamp / 1000),
     btaddr: msg.payload.data.sourceAddress,
     name: msg.payload.data.otaDeviceName,
