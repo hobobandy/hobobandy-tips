@@ -11,12 +11,12 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 <title>Kismet MQTT – hobobandy</title>
   <meta name="description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet’s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
-To support more MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
+To support more MQTT sources, I started a feature branch and added the logic required to support at least WiFi scan reports, Bluetooth scan reports, and ADS-B raw hex from readsb.
 Kismet Source DefinitionPart of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS." /><link rel="canonical" href="https://hobobandy.tips/guides/mqtt/kismet-mqtt/" itemprop="url" />
 
 <meta property="og:title" content="Kismet MQTT" />
 <meta property="og:description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet&rsquo;s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
-To support more MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
+To support more MQTT sources, I started a feature branch and added the logic required to support at least WiFi scan reports, Bluetooth scan reports, and ADS-B raw hex from readsb.
 Kismet Source Definition
     Part of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS." />
 <meta property="og:type" content="article" />
@@ -26,15 +26,15 @@ Kismet Source Definition
 
   <meta itemprop="name" content="Kismet MQTT">
   <meta itemprop="description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet’s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
-To support more MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
+To support more MQTT sources, I started a feature branch and added the logic required to support at least WiFi scan reports, Bluetooth scan reports, and ADS-B raw hex from readsb.
 Kismet Source DefinitionPart of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.">
   <meta itemprop="datePublished" content="2025-07-06T07:35:18-04:00">
   <meta itemprop="dateModified" content="2025-07-06T07:35:18-04:00">
-  <meta itemprop="wordCount" content="452">
+  <meta itemprop="wordCount" content="460">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Kismet MQTT">
   <meta name="twitter:description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet’s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
-To support more MQTT sources, I started a feature branch and added support for at least WiFi scan reports and Bluetooth scan reports.
+To support more MQTT sources, I started a feature branch and added the logic required to support at least WiFi scan reports, Bluetooth scan reports, and ADS-B raw hex from readsb.
 Kismet Source DefinitionPart of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.">
 
     <link rel="preload" href="/css/compiled/main.min.bc4b65361c6d99b81019c2e0ce1db3b695e03660fcd1360b0900a07df79691e0.css" as="style" integrity="sha256-vEtlNhxtmbgQGcLgzh2ztpXgNmD80TYLCQCgffeWkeA=" />
@@ -584,7 +584,7 @@ Kismet Source DefinitionPart of the feature branch is to fix the current authen
         <div class="content">
           <h1>Kismet MQTT</h1>
           <p>Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet&rsquo;s MQTT datasource to ingest WiFi and Bluetooth scans from the <a href="https://www.networksurvey.app/" target="_blank" rel="noopener">Network Survey App</a>. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.</p>
-<p>To support more MQTT sources, I <a href="https://github.com/hobobandy/kismet/tree/dev/feature/mqtt" target="_blank" rel="noopener">started a feature branch</a> and added support for at least <a href="https://www.kismetwireless.net/docs/api/wifi_scanningmode/" target="_blank" rel="noopener">WiFi scan reports</a> and <a href="https://www.kismetwireless.net/docs/api/bluetooth_scanningmode/" target="_blank" rel="noopener">Bluetooth scan reports</a>.</p>
+<p>To support more MQTT sources, I <a href="https://github.com/hobobandy/kismet/tree/dev/feature/mqtt" target="_blank" rel="noopener">started a feature branch</a> and added the logic required to support at least <a href="https://www.kismetwireless.net/docs/api/wifi_scanningmode/" target="_blank" rel="noopener">WiFi scan reports</a>, <a href="https://www.kismetwireless.net/docs/api/bluetooth_scanningmode/" target="_blank" rel="noopener">Bluetooth scan reports</a>, and ADS-B raw hex from <a href="https://github.com/wiedehopf/readsb" target="_blank" rel="noopener">readsb</a>.</p>
 <h2>Kismet Source Definition<span class="hx:absolute hx:-mt-20" id="kismet-source-definition"></span>
     <a href="#kismet-source-definition" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Part of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.</p>
 <p>I still need to test the TLS logic, my MQTT broker isn&rsquo;t configured to use TLS yet.</p>

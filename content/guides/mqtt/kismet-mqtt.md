@@ -6,7 +6,7 @@ title = 'Kismet MQTT'
 
 Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet's MQTT datasource to ingest WiFi and Bluetooth scans from the [Network Survey App](https://www.networksurvey.app/). Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
 
-To support more MQTT sources, I [started a feature branch](https://github.com/hobobandy/kismet/tree/dev/feature/mqtt) and added support for at least [WiFi scan reports](https://www.kismetwireless.net/docs/api/wifi_scanningmode/) and [Bluetooth scan reports](https://www.kismetwireless.net/docs/api/bluetooth_scanningmode/).
+To support more MQTT sources, I [started a feature branch](https://github.com/hobobandy/kismet/tree/dev/feature/mqtt) and added the logic required to support at least [WiFi scan reports](https://www.kismetwireless.net/docs/api/wifi_scanningmode/), [Bluetooth scan reports](https://www.kismetwireless.net/docs/api/bluetooth_scanningmode/), and ADS-B raw hex from [readsb](https://github.com/wiedehopf/readsb).
 
 ## Kismet Source Definition
 
