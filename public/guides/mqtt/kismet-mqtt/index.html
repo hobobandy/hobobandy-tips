@@ -30,7 +30,7 @@ To support more MQTT sources, I started a feature branch and added support for a
 Kismet Source DefinitionPart of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.">
   <meta itemprop="datePublished" content="2025-07-06T07:35:18-04:00">
   <meta itemprop="dateModified" content="2025-07-06T07:35:18-04:00">
-  <meta itemprop="wordCount" content="437">
+  <meta itemprop="wordCount" content="452">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Kismet MQTT">
   <meta name="twitter:description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet’s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
@@ -546,6 +546,10 @@ Kismet Source DefinitionPart of the feature branch is to fix the current authen
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
+        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#tcp-in">TCP IN
+        </a>
+      </li>
+      <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
         <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:break-words" href="#mqtt-topic">MQTT Topic
         </a>
       </li>
@@ -777,6 +781,12 @@ return msg;</code></pre></div><div class="hextra-code-copy-btn-container hx:opac
 <h3>ADS-B<span class="hx:absolute hx:-mt-20" id="ads-b"></span>
     <a href="#ads-b" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
     <img src="../kismet-mqtt-nodered-adsb.png" alt="TCP IN -&gt; FUNCTION -&gt; MQTT OUT"  loading="lazy" /></p>
+<h4>TCP IN<span class="hx:absolute hx:-mt-20" id="tcp-in"></span>
+    <a href="#tcp-in" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>Type: <code>Listen on</code> port <code>8585</code></li>
+<li>Output: <code>stream of</code> <code>String</code></li>
+<li>Leave <code>delimited by</code> empty</li>
+</ul>
 <h4>MQTT Topic<span class="hx:absolute hx:-mt-20" id="mqtt-topic"></span>
     <a href="#mqtt-topic" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
 <li>MQTT OUT Topic: <code>ADSB</code></li>

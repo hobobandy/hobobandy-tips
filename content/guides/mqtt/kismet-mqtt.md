@@ -169,6 +169,12 @@ return msg;
 
 ![TCP IN -> FUNCTION -> MQTT OUT](kismet-mqtt-nodered-adsb.png)
 
+#### TCP IN
+
+* Type: `Listen on` port `8585`
+* Output: `stream of` `String`
+* Leave `delimited by` empty
+
 #### MQTT Topic
 
 * MQTT OUT Topic: `ADSB`
