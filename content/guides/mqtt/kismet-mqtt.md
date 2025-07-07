@@ -16,11 +16,22 @@ I still need to test the TLS logic, my MQTT broker isn't configured to use TLS y
 
 The `mapping` in the source definition is case-sensative, and I still need to confirm other data types.
 
+The following config doesn't differentiate MQTT sensors:
+
 ```
-source=mqtt:host=127.0.0.1,port=1883,topic=DOT11SCAN,mapping=DOT11SCAN,user=kismet,password=kismet
-source=mqtt:host=127.0.0.1,port=1883,topic=BLUETOOTHSCAN,mapping=BLUETOOTHSCAN,user=kismet,password=kismet
-source=mqtt:host=127.0.0.1,port=1883,topic=ADSB,mapping=adsb,user=kismet,password=kismet
+source=mqtt:host=127.0.0.1,port=1883,topic=DOT11SCAN/#,mapping=DOT11SCAN,user=kismet,password=kismet
+source=mqtt:host=127.0.0.1,port=1883,topic=BLUETOOTHSCAN/#,mapping=BLUETOOTHSCAN,user=kismet,password=kismet
+source=mqtt:host=127.0.0.1,port=1883,topic=ADSB/#,mapping=adsb,user=kismet,password=kismet
 ```
+
+If you want to differentiate MQTT sensors in the Kismet web interface, then do something like:
+
+```
+source=mqtt:host=127.0.0.1,port=1883,topic=DOT11SCAN/EmeraldTucan20,mapping=DOT11SCAN,user=kismet,password=kismet,name=MQTT-WIFI-EmeraldTucan20
+source=mqtt:host=127.0.0.1,port=1883,topic=DOT11SCAN/LavenderShark53,mapping=DOT11SCAN,user=kismet,password=kismet,name=MQTT-WIFI-LavenderShark53
+```
+
+**NOTE:** I still need to confirm how to differentiate between ADS-B sources.
 
 ## ADS-B Runtime Command
 
@@ -42,7 +53,7 @@ Initially, I thought I'd have to create a translator from the App's format to Ki
 
 * MQTT IN Topic: `80211_beacon_message`
 
-* MQTT OUT Topic: `DOT11SCAN`
+* MQTT OUT Topic: Leave blank (it is set in the function below)
 
 #### Function
 
@@ -55,6 +66,8 @@ if (msg.payload.data.encryptionType != "")
     capabilities.push(`[${msg.payload.data.encryptionType}]`);
 if (msg.payload.data.wps == true)
     capabilities.push("[WPS]");
+
+msg.topic = `DOT11SCAN/${msg.payload.data.deviceName}`;
 
 msg.payload = {
     timestamp: Math.round(timestamp / 1000),
@@ -80,7 +93,7 @@ return msg;
 #### MQTT Topics
 
 - MQTT IN Topic: `bluetooth_message`
-- MQTT OUT Topic: `BLUETOOTHSCAN`
+- MQTT OUT Topic: Leave blank (it is set in the functions below)
 
 #### Functions
 
@@ -101,6 +114,8 @@ switch (msg.payload.data.supportedTechnologies) {
 }
 
 let timestamp = Date.parse(msg.payload.data.deviceTime);
+
+msg.topic = `BLUETOOTHSCAN/${msg.payload.data.deviceName}`;
 
 msg.payload = {
     timestamp: Math.round(timestamp / 1000),
@@ -126,6 +141,8 @@ if (msg.payload.data.supportedTechnologies != "DUAL") {
 
 let timestamp = Date.parse(msg.payload.data.deviceTime);
 
+msg.topic = `BLUETOOTHSCAN/${msg.payload.data.deviceName}`;
+
 msg.payload = {
     timestamp: Math.round(timestamp / 1000),
     btaddr: msg.payload.data.sourceAddress,
@@ -149,6 +166,8 @@ if (msg.payload.data.supportedTechnologies != "DUAL") {
 }
 
 let timestamp = Date.parse(msg.payload.data.deviceTime);
+
+msg.topic = `BLUETOOTHSCAN/${msg.payload.data.deviceName}`;
 
 msg.payload = {
     timestamp: Math.round(timestamp / 1000),

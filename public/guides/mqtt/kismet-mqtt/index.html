@@ -30,7 +30,7 @@ To support more MQTT sources, I started a feature branch and added the logic req
 Kismet Source DefinitionPart of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.">
   <meta itemprop="datePublished" content="2025-07-06T07:35:18-04:00">
   <meta itemprop="dateModified" content="2025-07-06T07:35:18-04:00">
-  <meta itemprop="wordCount" content="460">
+  <meta itemprop="wordCount" content="525">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Kismet MQTT">
   <meta name="twitter:description" content="Kismet currently supports MQTT ingest from RTL433. I was hoping to use Kismet’s MQTT datasource to ingest WiFi and Bluetooth scans from the Network Survey App. Unfortunately, the MQTT datasource is currently specific to the RTL433 MQTT format.
@@ -589,11 +589,12 @@ Kismet Source DefinitionPart of the feature branch is to fix the current authen
     <a href="#kismet-source-definition" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Part of the feature branch is to fix the current authentication logic to allow user/pass authentication without TLS.</p>
 <p>I still need to test the TLS logic, my MQTT broker isn&rsquo;t configured to use TLS yet.</p>
 <p>The <code>mapping</code> in the source definition is case-sensative, and I still need to confirm other data types.</p>
+<p>The following config doesn&rsquo;t differentiate MQTT sensors:</p>
 <div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
 
-<div><pre><code>source=mqtt:host=127.0.0.1,port=1883,topic=DOT11SCAN,mapping=DOT11SCAN,user=kismet,password=kismet
-source=mqtt:host=127.0.0.1,port=1883,topic=BLUETOOTHSCAN,mapping=BLUETOOTHSCAN,user=kismet,password=kismet
-source=mqtt:host=127.0.0.1,port=1883,topic=ADSB,mapping=adsb,user=kismet,password=kismet</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+<div><pre><code>source=mqtt:host=127.0.0.1,port=1883,topic=DOT11SCAN/#,mapping=DOT11SCAN,user=kismet,password=kismet
+source=mqtt:host=127.0.0.1,port=1883,topic=BLUETOOTHSCAN/#,mapping=BLUETOOTHSCAN,user=kismet,password=kismet
+source=mqtt:host=127.0.0.1,port=1883,topic=ADSB/#,mapping=adsb,user=kismet,password=kismet</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
   <button
     class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
     title="Copy code"
@@ -603,6 +604,21 @@ source=mqtt:host=127.0.0.1,port=1883,topic=ADSB,mapping=adsb,user=kismet,passwor
   </button>
 </div>
 </div>
+<p>If you want to differentiate MQTT sensors in the Kismet web interface, then do something like:</p>
+<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
+
+<div><pre><code>source=mqtt:host=127.0.0.1,port=1883,topic=DOT11SCAN/EmeraldTucan20,mapping=DOT11SCAN,user=kismet,password=kismet,name=MQTT-WIFI-EmeraldTucan20
+source=mqtt:host=127.0.0.1,port=1883,topic=DOT11SCAN/LavenderShark53,mapping=DOT11SCAN,user=kismet,password=kismet,name=MQTT-WIFI-LavenderShark53</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
+  <button
+    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
+    <div class="success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
+  </button>
+</div>
+</div>
+<p><strong>NOTE:</strong> I still need to confirm how to differentiate between ADS-B sources.</p>
 <h2>ADS-B Runtime Command<span class="hx:absolute hx:-mt-20" id="ads-b-runtime-command"></span>
     <a href="#ads-b-runtime-command" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Change the <code>--net-connector</code> parameters to reflect where your Node-RED instance resides and the port its listening on for ADS-B messages.</p>
 <div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
@@ -628,7 +644,7 @@ source=mqtt:host=127.0.0.1,port=1883,topic=ADSB,mapping=adsb,user=kismet,passwor
 <p>MQTT IN Topic: <code>80211_beacon_message</code></p>
 </li>
 <li>
-<p>MQTT OUT Topic: <code>DOT11SCAN</code></p>
+<p>MQTT OUT Topic: Leave blank (it is set in the function below)</p>
 </li>
 </ul>
 <h4>Function<span class="hx:absolute hx:-mt-20" id="function"></span>
@@ -642,6 +658,8 @@ if (msg.payload.data.encryptionType != &#34;&#34;)
     capabilities.push(`[${msg.payload.data.encryptionType}]`);
 if (msg.payload.data.wps == true)
     capabilities.push(&#34;[WPS]&#34;);
+
+msg.topic = `DOT11SCAN/${msg.payload.data.deviceName}`;
 
 msg.payload = {
     timestamp: Math.round(timestamp / 1000),
@@ -673,7 +691,7 @@ return msg;</code></pre></div><div class="hextra-code-copy-btn-container hx:opac
 <h4>MQTT Topics<span class="hx:absolute hx:-mt-20" id="mqtt-topics-1"></span>
     <a href="#mqtt-topics-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
 <li>MQTT IN Topic: <code>bluetooth_message</code></li>
-<li>MQTT OUT Topic: <code>BLUETOOTHSCAN</code></li>
+<li>MQTT OUT Topic: Leave blank (it is set in the functions below)</li>
 </ul>
 <h4>Functions<span class="hx:absolute hx:-mt-20" id="functions"></span>
     <a href="#functions" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><h5>Non-DUAL<span class="hx:absolute hx:-mt-20" id="non-dual"></span>
@@ -693,6 +711,8 @@ switch (msg.payload.data.supportedTechnologies) {
 }
 
 let timestamp = Date.parse(msg.payload.data.deviceTime);
+
+msg.topic = `BLUETOOTHSCAN/${msg.payload.data.deviceName}`;
 
 msg.payload = {
     timestamp: Math.round(timestamp / 1000),
@@ -725,6 +745,8 @@ return msg;</code></pre></div><div class="hextra-code-copy-btn-container hx:opac
 
 let timestamp = Date.parse(msg.payload.data.deviceTime);
 
+msg.topic = `BLUETOOTHSCAN/${msg.payload.data.deviceName}`;
+
 msg.payload = {
     timestamp: Math.round(timestamp / 1000),
     btaddr: msg.payload.data.sourceAddress,
@@ -755,6 +777,8 @@ return msg;</code></pre></div><div class="hextra-code-copy-btn-container hx:opac
 }
 
 let timestamp = Date.parse(msg.payload.data.deviceTime);
+
+msg.topic = `BLUETOOTHSCAN/${msg.payload.data.deviceName}`;
 
 msg.payload = {
     timestamp: Math.round(timestamp / 1000),
